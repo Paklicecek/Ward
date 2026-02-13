@@ -1,0 +1,28 @@
+# --- Security (NEVER commit these) ---
+.env
+.env.local
+docker/secrets/
+*.pem
+*.key
+
+# --- PHP Dependencies ---
+/vendor/
+composer.lock
+
+# --- System Junk (Windows & Mac) ---
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- IDE Settings (VS Code & JetBrains) ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- Docker & Logs ---
+docker-compose.override.yml
+*.log
+/var/
