@@ -1,15 +1,5 @@
-const searchInput = document.querySelector('.hs-input')
 const regionSelect = document.querySelector('.hs-region')
 const ticker = document.getElementById('ticker')
-
-searchInput.addEventListener('focus', () => {
-  searchInput.style.borderColor = 'var(--accent)'
-})
-
-searchInput.addEventListener('blur', () => {
-  searchInput.style.borderColor = ''
-})
-
 const notifDot = document.querySelector('.notif-dot')
 document.querySelector('.nav-notif').addEventListener('click', () => {
   // Later implement UI opening for notificatins.
@@ -38,22 +28,21 @@ function renderTicker(items) {
 }
 renderTicker(tickerItems)
 
-ticker.addEventListener('mouseenter', () => { ticker.style.animationPlayState = 'paused'; })
-ticker.addEventListener('mouseleave', () => { ticker.style.animationPlayState = 'running'; })
+ticker.addEventListener('mouseenter', () => { ticker.style.animationPlayState = 'paused' })
+ticker.addEventListener('mouseleave', () => { ticker.style.animationPlayState = 'running' })
 
-// --- Feature cells entrance ---
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, index) => {
-    if (!entry.isIntersecting) return;
+    if (!entry.isIntersecting) return
 
-    const el = entry.target;
+    const el = entry.target
 
-    el.style.transitionDelay = `${index * 0.1}s`;
-    el.classList.add('is-visible');
+    el.style.transitionDelay = `${index * 0.1}s`
+    el.classList.add('is-visible')
 
-    observer.unobserve(el);
-  });
-}, { threshold: 0.2 });
+    observer.unobserve(el)
+  })
+}, { threshold: 0.2 })
 
-document.querySelectorAll('.feature-cell')
-  .forEach(cell => observer.observe(cell));
+let featureCell = document.querySelectorAll('.feature-cell')
+featureCell.forEach(cell => observer.observe(cell))
