@@ -7,50 +7,42 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&family=Unbounded:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="main.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/main.js" defer></script>
 </head>
 <body>
-
-  <nav>
-    <a class="nav-logo" href="/">WARD<em>.GG</em></a>
-
-    <ul class="nav-links">
-      <li><a href="#">Stats</a></li>
-      <li><a href="#">Tier List</a></li>
-      <li><a href="#">Pro Builds</a></li>
-      <li><a href="#">Champions</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="nav-notif" aria-label="Notifications" data-backend="notifications">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-          <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-        </svg>
-        <span class="notif-dot" hidden></span>
-      </button>
-      <button class="nav-avatar" aria-label="Profile" data-backend="user-profile">
-        <span class="avatar-placeholder">?</span>
-      </button>
-    </div>
-  </nav>
-
+  <header>
+    <nav>
+      <a class="nav-logo" href="/">WARD<span class="GG">.GG</span></a>
+      <!-- Add links to builds/tier list in future -->
+      <div class="nav-actions">
+        <button class="nav-notif" aria-label="Notifications">
+          <!-- Change this svg to png -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notif-dot" hidden></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+<main>
   <section class="hero">
     <div class="grid-bg"></div>
     <div class="hero-glow"></div>
 
-    <p class="hero-eyebrow">League of Legends Analytics</p>
+    <p class="hero-eyebrow">League of Legends Statistics</p>
 
     <h1 class="hero-headline">READ THE GAME.</h1>
 
     <p class="hero-desc">
-      Surgical stats for every ranked game. KDA breakdowns, win rate trends,
-      and champion mastery — all in one place.
+      Stats breakdown for every game. <br>
+      Win rate trends, and champion mastery — all in one place.
     </p>
 
     <div class="hero-search" role="search">
-      <select class="hs-region" aria-label="Select region" data-backend="region-select">
+      <select class="hs-region" aria-label="Select region">
         <option value="EUW">EUW</option>
         <option value="NA">NA</option>
         <option value="KR">KR</option>
@@ -59,52 +51,36 @@
         <option value="LAN">LAN</option>
         <option value="OCE">OCE</option>
       </select>
+
       <input
         class="hs-input"
         type="text"
         placeholder="Summoner name · e.g. Celestine#EUW"
         autocomplete="off"
         spellcheck="false"
-        data-backend="summoner-search"
       />
-      <button class="hs-btn" data-backend="search-trigger">SEARCH</button>
+      <button class="hs-btn">SEARCH</button>
     </div>
+
   </section>
 
   <div class="ticker-wrap" aria-hidden="true">
-    <div class="ticker-inner">
-      <span class="ticker-item"><span class="tl">Live games</span>&nbsp;<span class="tv">1,847,392</span></span>
-      <span class="ticker-item"><span class="tl">Hottest champ</span>&nbsp;<span class="ta">Briar · 58% WR</span></span>
-      <span class="ticker-item"><span class="tl">Current patch</span>&nbsp;<span class="tv">14.24</span></span>
-      <span class="ticker-item"><span class="tl">Games tracked today</span>&nbsp;<span class="tv">23.4M</span></span>
-      <span class="ticker-item"><span class="tl">Top EUW player</span>&nbsp;<span class="tv">Faker · 97LP</span></span>
-      <span class="ticker-item"><span class="tl">Lowest WR</span>&nbsp;<span class="tv">Garen · 44.1%</span></span>
-      <span class="ticker-item"><span class="tl">Server</span>&nbsp;<span class="ta">Online</span></span>
-      <span class="ticker-item"><span class="tl">Top NA player</span>&nbsp;<span class="tv">Doublelift · 84LP</span></span>
-      <span class="ticker-item"><span class="tl">Live games</span>&nbsp;<span class="tv">1,847,392</span></span>
-      <span class="ticker-item"><span class="tl">Hottest champ</span>&nbsp;<span class="ta">Briar · 58% WR</span></span>
-      <span class="ticker-item"><span class="tl">Current patch</span>&nbsp;<span class="tv">14.24</span></span>
-      <span class="ticker-item"><span class="tl">Games tracked today</span>&nbsp;<span class="tv">23.4M</span></span>
-      <span class="ticker-item"><span class="tl">Top EUW player</span>&nbsp;<span class="tv">Faker · 97LP</span></span>
-      <span class="ticker-item"><span class="tl">Lowest WR</span>&nbsp;<span class="tv">Garen · 44.1%</span></span>
-      <span class="ticker-item"><span class="tl">Server</span>&nbsp;<span class="ta">Online</span></span>
-      <span class="ticker-item"><span class="tl">Top NA player</span>&nbsp;<span class="tv">Doublelift · 84LP</span></span>
-    </div>
+    <div class="ticker-inner" id="ticker"></div>
   </div>
 
   <section class="features-strip">
     <div class="feature-cell">
-      <div class="fc-val accent" data-backend="stat-games">24M+</div>
+      <div class="fc-val accent">24M+</div>
       <div class="fc-label">Games Analyzed</div>
       <p class="fc-desc">Every match tracked across all major servers in real time.</p>
     </div>
     <div class="feature-cell">
-      <div class="fc-val" data-backend="stat-latency">0.3s</div>
+      <div class="fc-val">0.3s</div>
       <div class="fc-label">Data Latency</div>
       <p class="fc-desc">Post-game stats live almost instantly after the nexus falls.</p>
     </div>
     <div class="feature-cell">
-      <div class="fc-val" data-backend="stat-champions">158</div>
+      <div class="fc-val">158</div>
       <div class="fc-label">Champions Tracked</div>
       <p class="fc-desc">Builds, runes, and ability order — every champion covered.</p>
     </div>
@@ -114,10 +90,11 @@
       <p class="fc-desc">No arbitrary limits. Your full history, always accessible.</p>
     </div>
   </section>
+</main>
 
   <footer class="site-footer">
     <div class="footer-logo">WARD<em>.GG</em></div>
-    <p class="footer-txt">Not affiliated with Riot Games · Patch 14.24</p>
+    <p class="footer-txt">Not affiliated with Riot Games · Patch 26.2</p>
     <p class="footer-txt">EUW · NA · KR · EUN · BR</p>
   </footer>
 

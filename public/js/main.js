@@ -1,10 +1,16 @@
 const searchInput = document.querySelector('.hs-input');
 const searchBtn = document.querySelector('.hs-btn');
 const regionSelect = document.querySelector('.hs-region');
-const ticker = document.querySelector('.ticker-inner');
+const ticker = document.getElementById('ticker');
 
 // --- Search ---
-// TODO: replace with API call to /api/summoner?name=&region=
+/*
+ * Title: Search Handler
+ * This function handles the logic when a user submits a search.
+ * It reads the summoner name and region, checks if the name is empty,
+ * and if so, focuses the input. Otherwise, it updates the button's visual state
+ * to indicate loading before the request to the backend happens.
+ */
 function handleSearch() {
   const name = searchInput.value.trim();
   const region = regionSelect.value;
@@ -19,12 +25,6 @@ function handleSearch() {
   searchBtn.style.opacity = '0.6';
 
   console.log('[search]', { name, region });
-
-  // Placeholder: swap out for fetch('/api/summoner', { method: 'POST', ... })
-  setTimeout(() => {
-    searchBtn.textContent = 'SEARCH';
-    searchBtn.style.opacity = '1';
-  }, 1200);
 }
 
 searchBtn.addEventListener('click', handleSearch);
@@ -42,33 +42,56 @@ searchInput.addEventListener('blur', () => {
 });
 
 // --- Nav: profile & notifications ---
-// TODO: on load, fetch('/api/user/me') and populate avatar + unread count
-const navAvatar = document.querySelector('.nav-avatar');
 const notifDot = document.querySelector('.notif-dot');
 
-navAvatar.addEventListener('click', () => {
-  // TODO: open profile dropdown / navigate to /profile
-  console.log('[nav] profile clicked');
-});
-
 document.querySelector('.nav-notif').addEventListener('click', () => {
-  // TODO: open notifications panel, mark as read via API
   console.log('[nav] notifications clicked');
 });
 
 // --- Ticker ---
-ticker.addEventListener('mouseenter', () => {
-  ticker.style.animationPlayState = 'paused';
-});
+const tickerItems = [
+  { label: 'Live games',        value: '1,847,392',   type: 'value'  },
+  { label: 'Hottest champ',     value: 'Briar · 58% WR', type: 'accent' },
+  { label: 'Current patch',     value: '14.24',       type: 'value'  },
+  { label: 'Games tracked today', value: '23.4M',     type: 'value'  },
+  { label: 'Top EUW player',    value: 'Faker · 97LP', type: 'value' },
+  { label: 'Lowest WR',         value: 'Garen · 44.1%', type: 'value' },
+  { label: 'Server',            value: 'Online',      type: 'accent' },
+  { label: 'Top NA player',     value: 'Doublelift · 84LP', type: 'value' },
+];
 
-ticker.addEventListener('mouseleave', () => {
-  ticker.style.animationPlayState = 'running';
-});
+/*
+ * Title: Ticker Item Builder
+ * This utility function constructs the HTML string for a single ticker item.
+ * It applies 'ta' (accent text) or 'tv' (value text) classes dynamically based on the item type.
+ */
+function buildTickerItem({ label, value, type }) {
+  const cls = type === 'accent' ? 'ta' : 'tv';
+  return `<span class="ticker-item"><span class="tl">${label}</span>&nbsp;<span class="${cls}">${value}</span></span>`;
+}
 
-// TODO: refresh ticker data from /api/live-stats every 60s
-// setInterval(() => fetchLiveStats(), 60_000);
+/*
+ * Title: Ticker Renderer
+ * This function populates the live scrolling ticker on the page.
+ * It duplicates the list of items when inserting them to create a seamless, infinite scrolling illusion.
+ */
+function renderTicker(items) {
+  const html = items.map(buildTickerItem).join('');
+  ticker.innerHTML = html + html; // duplicate set for seamless loop
+}
+
+renderTicker(tickerItems);
+
+ticker.addEventListener('mouseenter', () => { ticker.style.animationPlayState = 'paused'; });
+ticker.addEventListener('mouseleave', () => { ticker.style.animationPlayState = 'running'; });
 
 // --- Feature cells entrance ---
+/*
+ * Title: Feature Cells Entrance Animation (Intersection Observer)
+ * Sets up scroll-based animations for the feature highlights section.
+ * It monitors when elements enter the viewport and triggers a staggered CSS fade-in
+ * and slide-up animation.
+ */
 const observer = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
     if (!entry.isIntersecting) return;

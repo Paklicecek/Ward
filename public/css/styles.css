@@ -30,19 +30,26 @@ body {
   min-height: 100vh;
 }
 
-/* NAV */
+/* 
+ * Title: Navigation Bar
+ * Explanation: Styles the top navigation area including the logo, links, 
+ * and interactive action buttons (notifications and profile avatar).
+ * It includes a subtle fade-down animation on load.
+ */
 nav {
   position: relative;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 60px;
+  padding: 0 24px;
   height: 56px;
   border-bottom: 1px solid var(--border);
   animation: fadeDown 0.5s ease both;
 }
-
+.GG{
+  color: rgb(79, 158, 255);
+}
 .nav-logo {
   font-family: 'Unbounded', sans-serif;
   font-weight: 700;
@@ -59,7 +66,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   list-style: none;
 }
 
@@ -137,7 +144,19 @@ nav {
   color: var(--text-3);
 }
 
-/* HERO */
+/* 
+ * Title: Main Hero Section
+ * Explanation: Defines the primary landing area. The .grid-bg provides a subtle
+ * patterned background, and .hero-glow creates a radial light effect behind
+ * the text to add depth.
+ */
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .hero {
   flex: 1;
   position: relative;
@@ -158,14 +177,14 @@ nav {
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 80px 80px;
-  opacity: 0.35;
+  opacity: 0.55;
 }
 
 .hero-glow {
   position: absolute;
   width: 700px;
   height: 400px;
-  background: radial-gradient(ellipse, rgba(79, 158, 255, 0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(79, 158, 255, 0.2) 0%, transparent 70%);
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -206,7 +225,12 @@ nav {
   animation: fadeUp 0.5s 0.26s ease both;
 }
 
-/* SEARCH */
+/* 
+ * Title: Search Component
+ * Explanation: Styles the interactive search bar, including the region selector 
+ * dropdown, the summoner name text input, and the search button. It manages
+ * layout alignment and interactive states (hover/focus).
+ */
 .hero-search {
   position: relative;
   display: flex;
@@ -277,7 +301,12 @@ nav {
 
 .hs-btn:hover { opacity: 0.85; }
 
-/* TICKER */
+/* 
+ * Title: Infinite Scrolling Ticker
+ * Explanation: Handles the layout and animation for the live statistics bar.
+ * .ticker-wrap hides overflow, and .ticker-inner applies the keyframe animation
+ * to continuously translate the content horizontally.
+ */
 .ticker-wrap {
   border-top: 1px solid var(--border);
   overflow: hidden;
@@ -308,7 +337,11 @@ nav {
 .ticker-item .tv { color: var(--text-1); }
 .ticker-item .ta { color: var(--accent); }
 
-/* FEATURES */
+/* 
+ * Title: Feature Grid layout
+ * Explanation: Creates a responsive grid layout for the platform's statistics cards.
+ * It arranges the cards horizontally, managing borders and hover states for each cell.
+ */
 .features-strip {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -351,7 +384,11 @@ nav {
   line-height: 1.55;
 }
 
-/* FOOTER */
+/* 
+ * Title: Site Footer
+ * Explanation: Styles the bottom section of the page, ensuring it is separated
+ * by a border and flexes nicely to space the logo and text apart.
+ */
 .site-footer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
@@ -381,7 +418,11 @@ nav {
   letter-spacing: 0.12em;
 }
 
-/* ANIMATIONS */
+/* 
+ * Title: Keyframe Animations
+ * Explanation: Defines the core animations used throughout the page, such as
+ * the fade-up/down effects for entrances and the scroll animation for the ticker.
+ */
 @keyframes fadeDown {
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -395,39 +436,4 @@ nav {
 @keyframes scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav { padding: 0 24px; }
-  .nav-links { display: none; }
-  .hero { padding: 60px 24px 80px; }
-  .hero-headline { white-space: normal; font-size: clamp(2.5rem, 10vw, 5rem); }
-  .features-strip { grid-template-columns: repeat(2, 1fr); }
-  .feature-cell:nth-child(2) { border-right: none; }
-  .site-footer {
-    padding: 20px 24px;
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
-}
-
-@media (max-width: 560px) {
-  .features-strip { grid-template-columns: 1fr; }
-  .feature-cell {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-  .hero-search { flex-direction: column; }
-  .hs-region {
-    border-right: 1px solid var(--border-hi);
-    border-bottom: none;
-    padding: 12px 18px;
-  }
-  .hs-input {
-    border-right: 1px solid var(--border-hi);
-    border-bottom: none;
-  }
-  .hs-btn { padding: 14px; }
 }
