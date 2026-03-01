@@ -36,11 +36,11 @@ nav {
   background: var(--surface);
 }
 
-.GG{
+.logoHighlight{
   color: var(--accent);
 }
 
-.nav-logo {
+.logo {
   font-family: 'Unbounded', sans-serif;
   font-weight: 700;
   font-size: 1rem;
@@ -48,13 +48,13 @@ nav {
   text-decoration: none;
 }
 
-.nav-actions {
+.navActions {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.nav-notif {
+.notif-btn {
   background: var(--raised);
   border: 1px solid var(--border-hi);
   color: var(--text-2);
@@ -67,12 +67,12 @@ nav {
   transition: color 0.15s, background 0.15s;
 }
 
-.nav-notif:hover {
+.notif-btn:hover {
   color: var(--text-1);
   background: var(--panel);
 }
 
-.notif-dot {
+.notifDot {
   position: absolute;
   top: 6px;
   right: 6px;
@@ -88,7 +88,7 @@ main {
   flex-direction: column;
 }
 
-.hero {
+.heroContainer {
   flex: 1;
   position: relative;
   display: flex;
@@ -99,7 +99,7 @@ main {
   padding: 80px 60px 100px;
 }
 
-.grid-bg {
+.gridBg {
   position: absolute;
   inset: 0;
   pointer-events: none;
@@ -107,7 +107,7 @@ main {
   opacity: 0.2;
 }
 
-.hero-glow {
+.heroGlow {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -117,7 +117,7 @@ main {
   transform: translateX(-50%);
 }
 
-.hero-eyebrow {
+.subtitle {
   position: relative;
   font-size: 0.6rem;
   letter-spacing: 0.45em;
@@ -127,7 +127,7 @@ main {
   animation: fadeUp 0.5s 0.1s ease both;
 }
 
-.hero-headline {
+.headline {
   position: relative;
   font-family: 'Unbounded';
   font-weight: 900;
@@ -137,7 +137,7 @@ main {
   animation: fadeUp 0.5s 0.18s ease both;
 }
 
-.hero-desc {
+.description {
   font-size: 0.9rem;
   color: var(--text-2);
   max-width: 420px;
@@ -145,7 +145,7 @@ main {
   animation: fadeUp 0.5s 0.26s ease both;
 }
 
-.hero-search {
+.searchContainer {
   display: flex;
   align-items: stretch;
   margin-top: 48px;
@@ -154,7 +154,7 @@ main {
   animation: fadeUp 0.5s 0.34s ease both;
 }
 
-.hs-region {
+.regionSelect {
   background: var(--raised);
   border: 1px solid var(--border-hi);
   border-right: none;
@@ -172,16 +172,16 @@ main {
   transition: background-color 0.15s;
 }
 
-.hs-region:hover{
+.regionSelect:hover{
  background-color: var(--panel); 
 }
 
-.hs-region option {
+.regionSelect option {
   background: var(--panel);
   color: var(--text-1);
 }
 
-.hs-input {
+.searchInput {
   flex: 1;
   background: var(--surface);
   border: 1px solid var(--border-hi);
@@ -193,15 +193,15 @@ main {
   transition: border-color 0.15s;
 }
 
-.hs-input:focus {
+.searchInput:focus {
   border-color: var(--accent); 
 }
-.hs-input::placeholder
+.searchInput::placeholder
 { 
   color: var(--text-3); 
 }
 
-.hs-btn {
+.search-btn {
   background: var(--accent);
   border: none;
   color: #fff;
@@ -215,10 +215,10 @@ main {
   transition: opacity 0.15s;
 }
 
-.hs-btn:hover{ 
+.search-btn:hover{ 
   opacity: 0.85; 
 }
-.site-footer {
+.footerContainer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
   display: flex;
@@ -228,14 +228,14 @@ main {
   flex-shrink: 0;
 }
 
-.footer-logo {
+.footerLogo {
   font-family: 'Unbounded';
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--text-1);
 }
 
-.footer-txt {
+.footer-text {
   font-size: 0.6rem;
   color: var(--text-2);
   letter-spacing: 0.1em;
