@@ -3,12 +3,13 @@ class ApiClient{
     private string $baseUrl;
     private array $headers;
     private string $apiKey;
-
-    public function __construct($baseUrl, $headers = [])
+    public function __construct($baseUrl)
     {
         $this->baseUrl = rtrim($baseUrl, "/");
-        $this->headers = $headers;
-        $this->apiKey = $_ENV["API_KEY"];
+        $env = parse_ini_file(__DIR__ . '/../../.env');
+        $this->apiKey = $env["API_KEY"];
+        $this->headers = ["X-Riot-Token: {$this->apiKey}"];
+        // here the logic for base url?
     }
     public function get($endpoint): array{
         $ch = curl_init($this->baseUrl . $endpoint);
