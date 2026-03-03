@@ -2,10 +2,13 @@
 class ApiClient{
     private string $baseUrl;
     private array $headers;
+    private string $apiKey;
+
     public function __construct($baseUrl, $headers = [])
     {
         $this->baseUrl = rtrim($baseUrl, "/");
         $this->headers = $headers;
+        $this->apiKey = $_ENV["API_KEY"];
     }
     public function get($endpoint): array{
         $ch = curl_init($this->baseUrl . $endpoint);
@@ -23,7 +26,7 @@ class ApiClient{
         unset($ch);
         return[
             "status" => $httpCode,
-            "data" => json_encode($response, true)
+            "data" => json_decode($response, true)
         ];
     }
 }
