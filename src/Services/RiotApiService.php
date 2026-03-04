@@ -31,8 +31,4 @@ class ApiClient{
         ];
     }
 }
-
-
-
-
 ?>
