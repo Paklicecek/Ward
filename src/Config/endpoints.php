@@ -1,11 +1,21 @@
 <?php
-function getEndpoint($user,$tagLine,$location,$puuid,$lookingFor,$pfpID,$matchID,$summonerID,$championName,$itemID){
-    $version = "14.24.1";
+function getEndpoint(
+$lookingFor,
+$user=null, 
+$tagLine=null, 
+$puuid=null, 
+$pfpID=null, 
+$matchID=null, 
+$summonerID=null, 
+$championName=null, 
+$itemID=null
+)
+{    $version = "26.5.1";
     switch ($lookingFor) {
         case "puuid":
             return "/riot/account/v1/accounts/by-riot-id/$user/$tagLine";
         case "summoner":
-            return "/lol/summoner/by-puuid/$puuid";
+            return "/lol/summoner/v4/summoners/by-puuid/$puuid";
         case "mastery":
             return "/lol/champion-mastery/v4/champion-masteries/by-puuid/$puuid";
         case "pfp":
