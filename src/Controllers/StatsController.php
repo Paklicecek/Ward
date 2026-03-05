@@ -1,6 +1,6 @@
 <?php
-require_once '../Services/RiotApiService.php';
-require_once '../Config/endpoints.php';
+require_once __DIR__ . '/../Services/RiotApiService.php';
+require_once __DIR__ . '/../Config/endpoints.php';
 
 class StatsController{
     private ApiClient $client;
@@ -11,7 +11,7 @@ class StatsController{
     public function getPlayerData
     (
     $user=null, 
-    $tagLine=null, 
+    $tagLine=null
     )
     {
         $account = $this->client->getRegional(getEndpoint("puuid", user: $user, tagLine : $tagLine));

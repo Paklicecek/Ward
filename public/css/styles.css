@@ -201,7 +201,7 @@ main {
   color: var(--text-3); 
 }
 
-.search-btn {
+.searchBtn {
   background: var(--accent);
   border: none;
   color: #fff;
@@ -215,7 +215,7 @@ main {
   transition: opacity 0.15s;
 }
 
-.search-btn:hover{ 
+.searchBtn:hover{ 
   opacity: 0.85; 
 }
 .footerContainer {
