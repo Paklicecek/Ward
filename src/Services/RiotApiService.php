@@ -7,7 +7,7 @@ class ApiClient{
     public function __construct($location)
     {
         $env = parse_ini_file(__DIR__ . "/../../.env");
-        $this->apiKey = $env["API_KEY"];
+        $this->apiKey = trim($env["API_KEY"]);
         $this->headers = ["X-Riot-Token: {$this->apiKey}"];
         // Missing regions -> RU,OCE,TR,LAN,LAS,SEA,TW,VN,ME
         switch($location){

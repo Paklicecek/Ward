@@ -1,7 +1,7 @@
 const searchInput = document.querySelector(".searchInput")
 const regionSelect = document.querySelector(".regionSelect")
 const button = document.querySelector(".searchBtn")
-const body = document.querySelector(".body").innerHTML
+const app = document.querySelector(".app")
 
 button.addEventListener("click", ()=>{
     const region = regionSelect.value
