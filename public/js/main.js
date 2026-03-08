@@ -8,5 +8,12 @@ button.addEventListener("click", ()=>{
     const [user, tagLine] = searchInput.value.split('#');
     fetch(`/api.php?user=${user}&tagLine=${tagLine}&region=${region}`)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+            renderStats(data)
+        })
 })
+
+function renderStats(data) {
+    app.innerHTML = `<h1>${data.rankedStats[0].tier}</h1>`
+}
