@@ -6,7 +6,6 @@
     "buildEnvironment": "V3"
   },
   "deploy": {
-    "startCommand": "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.* && apache2-foreground",
     "runtime": "V2",
     "numReplicas": 1,
     "sleepApplication": true,
