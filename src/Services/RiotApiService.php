@@ -6,8 +6,12 @@ class ApiClient{
     private string $apiKey;
     public function __construct($location)
     {
-        $env = parse_ini_file(__DIR__ . "/../../.env");
-        $this->apiKey = trim($env["API_KEY"]);
+        $apiKey = getenv("API_KEY");
+        if(!$apiKey && file_exists(__DIR__ . "/../../.env")) {
+            $env = parse_ini_file(__DIR__ . "/../../.env");
+            $apiKey = $env["API_KEY"] ?? '';
+        }
+        $this->apiKey = trim($apiKey);
         $this->headers = ["X-Riot-Token: {$this->apiKey}"];
         // Missing regions -> RU,OCE,TR,LAN,LAS,SEA,TW,VN,ME
         switch($location){
