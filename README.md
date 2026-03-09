@@ -1,6 +1,6 @@
 # WARD.GG
 
-WARD.GG is a League of Legends statistics web application inspired by u.gg. It aims to provide real-time stats breakdowns, win rate trends, champion mastery, and detailed match history for players across all major regions.
+Ward.GG is a League of Legends statistics web application inspired by U.GG. It aims to provide real-time stats breakdowns, win rate trends, champion mastery, and detailed match history for players across all major regions.
 
 ## 🚀 Tech Stack
 
@@ -10,18 +10,7 @@ WARD.GG is a League of Legends statistics web application inspired by u.gg. It a
 - **Infrastructure:** Docker & Docker Compose
 - **Dependency Management:** Composer
 
-## 📦 Project Structure
-
-- `public/`: Frontend assets (HTML, CSS, JS).
-- `src/`: Backend logic, including database configuration (`db.php`) and Riot API integrations (`riot.php`).
-- `docker/`: Docker configuration files (`Dockerfile`) and SQL initialization scripts (`init.sql`).
-
-## 🛠️ Getting Started
-
-### Prerequisites
-- Docker & Docker Compose
-
-### Installation
+### 🛠️ Installation
 
 1. Clone the repository.
 2. Create your `.env` file by copying the example file:
