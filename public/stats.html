@@ -4,57 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WARD.GG</title>
+    <link rel="stylesheet" href="css/stats.css">
 </head>
 <body>
     <header>
-
+    <nav>
+      <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
+      <!-- Add links to builds/tier list in future -->
+      <div class="navActions">
+        <button class="notif-btn" aria-label="Notifications">
+          <!-- Change this svg to png -->
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="notifDot" hidden></span>
+        </button>
+      </div>
+    </nav>
     </header>
     <main>
-        <section>
-            <div class="mainHeader">
-                <div class="rankHistory">
-                </div>
-                <div class="profile">
-                </div>
-                <div class="tabSelector">
-                </div>
-            </div>
-            <div class="center">
-                <div class="leftSideBar">
-                    <div class="rankContainer">
-                        <div class="rankSolo">
-                        </div>
-                        <div class="rankFlex">
+        <div class="app">
+            <section class="mainHeader">
+                    <div class="rankHistory">
+                        <div class="rank">
+                            <strong class="season">S14-2</strong>
+                            <span class="rankText">Silver</span>
                         </div>
                     </div>
-                    <div class="champStats">
-                        <!-- Temporary hard coded part for UI testing -->
-                        <div class="champion">
+                    <div class="rowContainer">
+                        <div class="profile">
+                            <div class="levelContainer">141</div>
+                            <div class="levelBottom"></div>
+                            <div class="pfpContainer">
+                                <img src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/6382.png" alt="">
+                            </div>
+                        </div>
+                        <div class="updateContainer">
+                            <div class="searchedAccount">
+                                <span class="searchedUsername">Paklicek</span>
+                                <span class="searchedTagLine">#rizz</span>
+                            </div>
+                            <button class="updateButton">Update</button>
                         </div>
                     </div>
-                    <div class="recentMets">
+                    <div class="tabSelector">
+                        <menu>
+                            <li>Overview</li>
+                            <li>Champion Stats</li>
+                        </menu>
                     </div>
-                </div>
-            </div>
-            <div class="matchHistory">
-                <!-- For selecting modes -->
-                <select name="" id="">
-                    <option value="">Aram</option>
-                </select>
-                <div class="recentStats">
-
-                </div>
-                <div class="matches">
-                    <!-- Hard coded matches for UI testing -->
-                    <div class="match">
-
+            </section>
+            <section class="center">
+                    <div class="leftSideBar">
+                        <div class="rankContainer">
+                            <div class="rankSolo">
+                            </div>
+                            <div class="rankFlex">
+                            </div>
+                        </div>
+                        <div class="champStats">
+                            <!-- Temporary hard coded part for UI testing -->
+                            <div class="champion">
+                            </div>
+                        </div>
+                        <div class="recentMets">
+                        </div>
                     </div>
-                </div> 
-            </div>
-        </section>
+            </section>
+            <section class="matchHistory">
+                    <!-- For selecting modes -->
+                    <!-- <select name="" id="">
+                    </select> -->
+                    <div class="recentStats">
+    
+                    </div>
+                    <div class="matches">
+                        <!-- Hard coded matches for UI testing -->
+                        <div class="match">
+    
+                        </div>
+                    </div> 
+            </section>
+        </div>
     </main>
-    <footer>
-
-    </footer>
+  <footer class="footerContainer">
+    <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
+    <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
+    <p class="footer-text">EUW · NA · KR · EUN · BR</p>
+  </footer>
 </body>
 </html>
