@@ -10,7 +10,8 @@ $summonerID=null,
 $championName=null, 
 $itemID=null
 )
-{    $version = "26.5.1";
+{   
+     $version = "26.5.1";
     switch ($lookingFor) {
         case "puuid":
             return "/riot/account/v1/accounts/by-riot-id/$user/$tagLine";
