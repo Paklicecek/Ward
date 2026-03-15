@@ -5,7 +5,7 @@
   --raised:    #1c1c28;
   --border:    #22222e;
   --border-hi: #2d2d3e;
-  --accent:    #4f9eff;
+  --accent:    #3273fa;
   --accent-bg: rgba(79, 158, 255, 0.07);
   --text-1:    #e8e8f0;
   --text-2:    #8888a0;
@@ -130,15 +130,42 @@ section{
         color: var(--text-1);
         display: flex;
         flex-direction: column;
-        .searchedAccount{
-            margin-bottom: 8px;
-            font-size: 30px;
-            .searchedTagLine{
-                margin-left: 12px;
-                color: rgb(205, 220, 254);
-            }
-        }
 
+      .searchedAccount{
+        margin-bottom: 8px;
+        font-size: 30px;
+
+        .searchedTagLine{
+          margin-left: 12px;
+          color: rgb(205, 220, 254);
+        }
+      }
+
+      .updateButton{
+        width: 120px;
+        height: 36px;
+        border: none;
+        background-color: var(--accent);
+        border-radius: 3px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-weight: 700;
+
+        .mark{
+          border-radius: inherit;
+          font-size: 14px;
+          width: 16px;
+          height: 16px;
+          background-color: rgb(28, 61, 140);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
     }
 }
 .rankHistory{
@@ -221,7 +248,6 @@ section{
         }
     }
 }
-    
 
 
 .footerContainer {
