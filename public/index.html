@@ -1,77 +1,88 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WARD.GG</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&family=Unbounded:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=2" />
-  <script src="js/main.js?v=2" defer></script>
-</head>
-<body>
-  <header>
-    <nav>
-      <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
-      <!-- Add links to builds/tier list in future -->
-      <div class="navActions">
-        <button class="notif-btn" aria-label="Notifications">
-          <!-- Change this svg to png -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-          </svg>
-          <span class="notifDot" hidden></span>
-        </button>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <div class="app">
-      <section class="heroContainer">
-        <div class="gridBg"></div>
-        <div class="heroGlow"></div>
-    
-        <p class="subtitle">League of Legends Statistics</p>
-    
-        <h1 class="headline">READ THE GAME.</h1>
-    
-        <p class="description">
-          Stats breakdown for every game. <br>
-          Win rate trends, and champion mastery — all in one place.
-        </p>
-    
-        <div class="searchContainer" role="search">
-          <select class="regionSelect" aria-label="Select region">
-            <option value="EUW">EUW</option>
-            <option value="NA">NA</option>
-            <option value="KR">KR</option>
-            <option value="EUN">EUN</option>
-            <option value="BR">BR</option>
-            <option value="LAN">LAN</option>
-            <option value="OCE">OCE</option>
-          </select>
-    
-          <input
-            class="searchInput"
-            type="text"
-            placeholder="Summoner name · e.g. Celestine#EUW"
-            autocomplete="off"
-            spellcheck="false"
-          />
-          <button class="searchBtn">SEARCH</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WARD.GG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&family=Unbounded:wght@300;400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css?v=2" />
+    <script src="js/main.js?v=2" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
+        <!-- Add links to builds/tier list in future -->
+        <div class="navActions">
+          <button class="notif-btn" aria-label="Notifications">
+            <!-- Change this svg to png -->
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notifDot" hidden></span>
+          </button>
         </div>
-    
-      </section>
-    </div>
-  </main>
+      </nav>
+    </header>
 
-  <footer class="footerContainer">
-    <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
-    <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
-    <p class="footer-text">EUW · NA · KR · EUN · BR</p>
-  </footer>
-</body>
+    <main>
+      <div class="app">
+        <section class="heroContainer">
+          <div class="gridBg"></div>
+          <div class="heroGlow"></div>
+
+          <p class="subtitle">League of Legends Statistics</p>
+
+          <h1 class="headline">READ THE GAME.</h1>
+
+          <p class="description">
+            Stats breakdown for every game. <br />
+            Win rate trends, and champion mastery — all in one place.
+          </p>
+
+          <div class="searchContainer" role="search">
+            <select class="regionSelect" aria-label="Select region">
+              <option value="EUW">EUW</option>
+              <option value="NA">NA</option>
+              <option value="KR">KR</option>
+              <option value="EUN">EUN</option>
+              <option value="BR">BR</option>
+              <option value="LAN">LAN</option>
+              <option value="OCE">OCE</option>
+            </select>
+
+            <input
+              class="searchInput"
+              type="text"
+              placeholder="Summoner name · e.g. Celestine#EUW"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button class="searchBtn">SEARCH</button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footerContainer">
+      <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
+      <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
+      <p class="footer-text">EUW · NA · KR · EUN · BR</p>
+    </footer>
+  </body>
 </html>
