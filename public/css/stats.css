@@ -10,6 +10,7 @@
   --text-1: #e8e8f0;
   --text-2: #8888a0;
   --text-3: #44445a;
+  --text-4: rgb(205, 220, 254);
 }
 
 * {
@@ -114,8 +115,8 @@ nav {
   border-radius: 50%;
 }
 
-section {
-  padding: 0rem 5rem 0rem 5rem;
+.app {
+  padding: 0rem 10vw 0rem 10vw;
 }
 
 .mainHeader {
@@ -139,7 +140,7 @@ section {
 
       .searchedTagLine {
         margin-left: 12px;
-        color: rgb(205, 220, 254);
+        color: var(--text-4);
       }
     }
 
@@ -250,10 +251,10 @@ section {
     }
   }
 }
-.tabSelector{
+.tabSelector {
   margin-top: 12px;
   margin-bottom: 24px;
-  .tabMenu{
+  .tabMenu {
     display: flex;
     justify-content: start;
     align-items: center;
@@ -263,12 +264,139 @@ section {
     color: white;
     font-size: 14px;
     font-weight: 700;
+    min-height: 44px;
     font-family: "Unbounded", sans-serif;
-    .active{
+    li {
+      padding-bottom: 6px;
+      border: rgba(0, 0, 0, 0) solid 2px;
+    }
+    li:hover {
+      border-bottom: var(--accent) solid 2px;
+    }
+    .active {
       color: var(--accent);
+      border-bottom: var(--accent) solid 2px;
     }
   }
 }
+.center {
+  flex: 1;
+  display: flex;
+  margin-top: 24px;
+  .leftSideBar {
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    .leftContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 324px;
+      .rankSolo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+    .rankFlex {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .rankedContainer,
+    .champStats,
+    .recentMets {
+      background-color: rgb(25, 25, 55);
+      padding: 18px;
+      border-radius: 3px;
+      font-size: 14px;
+      .container {
+        display: flex;
+        align-items: center;
+        .rankTitle {
+          color: white;
+          font-weight: 700;
+          padding-left: 14px;
+        }
+      }
+      .rankInfo {
+        color: var(--text-4);
+        font-weight: 400;
+      }
+      .description {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        margin-top: 16px;
+        .imgContainer {
+          img {
+            width: 54px;
+            height: 54px;
+            object-fit: contain;
+            margin-left: 2px;
+            margin-right: 12px;
+          }
+        }
+        .textContainer {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          .rankText {
+            .acturalRank {
+              margin-bottom: 2px;
+              color: white;
+              font-weight: 700;
+              font-size: 18px;
+            }
+            .LP {
+              font-weight: 500;
+              font-size: 12px;
+              color: var(--text-4);
+            }
+          }
+          .rankWins {
+            .winAndLosses {
+              margin-bottom: 2px;
+            }
+            .winAndLosses,
+            .winRate {
+              font-weight: 500;
+              font-size: 12px;
+              color: var(--text-4);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.champStats, .recentMets{
+  display: flex;
+  justify-content: space-between;
+}
+.headerContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+}
+.statsTitle {
+  color: white;
+  font-weight: 700;
+  padding-left: 14px;
+}
+.message {
+  color: var(--text-4);
+  font-weight: 400;
+}
+.line {
+  height: 20px;
+  border-left: 2px solid var(--accent);
+}
+
 .footerContainer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
@@ -280,7 +408,7 @@ section {
 }
 
 .footerLogo {
-  font-family: "Unbounded";
+  font-family: "Unbounded", sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--text-1);

@@ -1,97 +1,142 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WARD.GG</title>
-    <link rel="stylesheet" href="css/stats.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/stats.css" />
+  </head>
+  <body>
     <header>
-    <nav>
-      <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
-      <!-- Add links to builds/tier list in future -->
-      <div class="navActions">
-        <button class="notif-btn" aria-label="Notifications">
-          <!-- Change this svg to png -->
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-          </svg>
-          <span class="notifDot" hidden></span>
-        </button>
-      </div>
-    </nav>
+      <nav>
+        <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
+        <!-- Add links to builds/tier list in future -->
+        <div class="navActions">
+          <button class="notif-btn" aria-label="Notifications">
+            <!-- Change this svg to png -->
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notifDot" hidden></span>
+          </button>
+        </div>
+      </nav>
     </header>
     <main>
-        <div class="app">
-            <section class="mainHeader">
-                    <div class="rankHistory">
-                        <div class="rank">
-                            <strong class="season">S14-2</strong>
-                            <span class="rankText">Silver</span>
-                        </div>
+      <div class="app">
+        <section class="mainHeader">
+          <div class="rankHistory">
+            <div class="rank">
+              <strong class="season">S14-2</strong>
+              <span class="rankText">Silver</span>
+            </div>
+          </div>
+          <div class="rowContainer">
+            <div class="profile">
+              <div class="levelContainer">141</div>
+              <div class="levelBottom"></div>
+              <div class="pfpContainer">
+                <img
+                  src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/6382.png"
+                  alt=""
+                />
+              </div>
+            </div>
+            <div class="updateContainer">
+              <div class="searchedAccount">
+                <span class="searchedUsername">Paklicek</span>
+                <span class="searchedTagLine">#rizz</span>
+              </div>
+              <button class="updateButton">
+                Update
+                <div class="mark">!</div>
+              </button>
+            </div>
+          </div>
+          <div class="tabSelector">
+            <menu class="tabMenu">
+              <li class="active">Overview</li>
+              <li>Champion Stats</li>
+            </menu>
+          </div>
+        </section>
+        <section class="center">
+          <div class="leftSideBar">
+            <div class="leftContainer">
+              <div class="rankSolo rankedContainer">
+                <div class="container">
+                  <div class="line"></div>
+                  <p class="rankTitle">Ranked Solo</p>
+                </div>
+                <p class="rankInfo">Unranked</p>
+              </div>
+              <div class="rankFlex rankedContainer">
+                <div class="container">
+                  <div class="line"></div>
+                  <p class="rankTitle">Ranked Flex</p>
+                </div>
+                <div class="description">
+                  <div class="imgContainer">
+                    <img
+                      src="https://static.bigbrain.gg/assets/lol/ranks/s13/gold.png"
+                      alt=""
+                    />
+                  </div>
+                  <div class="textContainer">
+                    <div class="rankText">
+                      <p class="acturalRank">Gold 4</p>
+                      <p class="LP">65 LP</p>
                     </div>
-                    <div class="rowContainer">
-                        <div class="profile">
-                            <div class="levelContainer">141</div>
-                            <div class="levelBottom"></div>
-                            <div class="pfpContainer">
-                                <img src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/6382.png" alt="">
-                            </div>
-                        </div>
-                        <div class="updateContainer">
-                            <div class="searchedAccount">
-                                <span class="searchedUsername">Paklicek</span>
-                                <span class="searchedTagLine">#rizz</span>
-                            </div>
-                            <button class="updateButton">Update <div class="mark">!</div></button>
-                        </div>
+                    <div class="rankWins">
+                      <p class="winAndLosses">52W 43L</p>
+                      <p class="winRate">55% Win Rate</p>
                     </div>
-                    <div class="tabSelector">
-                        <menu class="tabMenu">
-                            <li class="active">Overview</li>
-                            <li>Champion Stats</li> 
-                        </menu>
-                    </div>
-            </section>
-            <section class="center">
-                    <div class="leftSideBar">
-                        <div class="rankContainer">
-                            <div class="rankSolo">
-                            </div>
-                            <div class="rankFlex">
-                            </div>
-                        </div>
-                        <div class="champStats">
-                            <!-- Temporary hard coded part for UI testing -->
-                            <div class="champion">
-                            </div>
-                        </div>
-                        <div class="recentMets">
-                        </div>
-                    </div>
-            </section>
-            <section class="matchHistory">
-                    <!-- For selecting modes -->
-                    <!-- <select name="" id="">
+                  </div>
+                </div>
+              </div>
+              <div class="champStats">
+                <div class="headerContainer">
+                  <div class="line"></div>
+                  <p class="statsTitle">Champion Stats</p>
+                </div>
+                <p class="message">Coming soon</p>
+              </div>
+              <div class="recentMets">
+                <div class="headerContainer">
+                  <div class="line"></div>
+                  <p class="statsTitle">Recently Played With</p>
+                </div>
+                <p class="message">Coming soon</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="matchHistory">
+          <!-- For selecting modes -->
+          <!-- <select name="" id="">
                     </select> -->
-                    <div class="recentStats">
-    
-                    </div>
-                    <div class="matches">
-                        <!-- Hard coded matches for UI testing -->
-                        <div class="match">
-    
-                        </div>
-                    </div> 
-            </section>
-        </div>
+          <div class="recentStats"></div>
+          <div class="matches">
+            <!-- Hard coded matches for UI testing -->
+            <div class="match"></div>
+          </div>
+        </section>
+      </div>
     </main>
-  <footer class="footerContainer">
-    <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
-    <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
-    <p class="footer-text">EUW · NA · KR · EUN · BR</p>
-  </footer>
-</body>
+    <footer class="footerContainer">
+      <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
+      <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
+      <p class="footer-text">EUW · NA · KR · EUN · BR</p>
+    </footer>
+  </body>
 </html>
