@@ -10,10 +10,8 @@
     <header>
       <nav>
         <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
-        <!-- Add links to builds/tier list in future -->
         <div class="navActions">
           <button class="notif-btn" aria-label="Notifications">
-            <!-- Change this svg to png -->
             <svg
               width="16"
               height="16"
@@ -73,17 +71,18 @@
         <section class="center">
           <div class="leftSideBar">
             <div class="leftContainer">
-              <div class="rankSolo rankedContainer">
-                <div class="container">
+              <div class="infoCard cardRow">
+                <div class="cardHeader">
                   <div class="line"></div>
-                  <p class="rankTitle">Ranked Solo</p>
+                  <p class="cardTitle">Ranked Solo</p>
                 </div>
-                <p class="rankInfo">Unranked</p>
+                <p class="message">Unranked</p>
               </div>
-              <div class="rankFlex rankedContainer">
-                <div class="container">
+
+              <div class="infoCard cardCol">
+                <div class="cardHeader">
                   <div class="line"></div>
-                  <p class="rankTitle">Ranked Flex</p>
+                  <p class="cardTitle">Ranked Flex</p>
                 </div>
                 <div class="description">
                   <div class="imgContainer">
@@ -104,31 +103,32 @@
                   </div>
                 </div>
               </div>
-              <div class="champStats">
-                <div class="headerContainer">
+
+              <div class="infoCard cardRow">
+                <div class="cardHeader">
                   <div class="line"></div>
-                  <p class="statsTitle">Champion Stats</p>
+                  <p class="cardTitle">Champion Stats</p>
                 </div>
                 <p class="message">Coming soon</p>
               </div>
-              <div class="recentMets">
-                <div class="headerContainer">
+
+              <div class="infoCard cardRow">
+                <div class="cardHeader">
                   <div class="line"></div>
-                  <p class="statsTitle">Recently Played With</p>
+                  <p class="cardTitle">Recently Played With</p>
                 </div>
                 <p class="message">Coming soon</p>
               </div>
             </div>
           </div>
-        </section>
-        <section class="matchHistory">
-          <!-- For selecting modes -->
-          <!-- <select name="" id="">
-                    </select> -->
-          <div class="recentStats"></div>
-          <div class="matches">
-            <!-- Hard coded matches for UI testing -->
-            <div class="match"></div>
+          <div class="matchHistory">
+            <div class="cardHeader matchHeader">
+              <div class="line"></div>
+              <div class="cardTitle">Match History</div>
+            </div>
+            <div class="matches">
+              <div class="match"></div>
+            </div>
           </div>
         </section>
       </div>

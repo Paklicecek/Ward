@@ -116,7 +116,7 @@ nav {
 }
 
 .app {
-  padding: 0rem 10vw 0rem 10vw;
+  padding: 0 10vw;
 }
 
 .mainHeader {
@@ -127,57 +127,52 @@ nav {
 .rowContainer {
   display: flex;
   align-items: center;
-  flex-direction: row;
-  .updateContainer {
-    margin-left: 24px;
-    color: var(--text-1);
-    display: flex;
-    flex-direction: column;
-
-    .searchedAccount {
-      margin-bottom: 8px;
-      font-size: 30px;
-
-      .searchedTagLine {
-        margin-left: 12px;
-        color: var(--text-4);
-      }
-    }
-
-    .updateButton {
-      width: 120px;
-      height: 36px;
-      border: none;
-      background-color: var(--accent);
-      border-radius: 3px;
-      color: white;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      font-weight: 700;
-
-      .mark {
-        border-radius: inherit;
-        font-size: 14px;
-        width: 16px;
-        height: 16px;
-        background-color: rgb(28, 61, 140);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
 }
+.updateContainer {
+  margin-left: 24px;
+  color: var(--text-1);
+  display: flex;
+  flex-direction: column;
+}
+.searchedAccount {
+  margin-bottom: 8px;
+  font-size: 30px;
+}
+.searchedTagLine {
+  margin-left: 12px;
+  color: var(--text-4);
+}
+
+.updateButton {
+  width: 120px;
+  height: 36px;
+  border: none;
+  background-color: var(--accent);
+  border-radius: 3px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-weight: 700;
+}
+.updateButton .mark {
+  border-radius: inherit;
+  font-size: 14px;
+  width: 16px;
+  height: 16px;
+  background-color: rgb(28, 61, 140);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .rank {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 5px;
   height: 18px;
-  border-radius: 3px;
   background-color: var(--panel);
   font-size: 10px;
   font-weight: 500;
@@ -185,22 +180,22 @@ nav {
   cursor: default;
   gap: 4px;
   border-radius: 3px;
-  .season {
-    color: var(--text-1);
-    font-weight: 700;
-  }
-  .rankText {
-    color: rgb(128, 152, 157);
-    font-weight: 500;
-  }
 }
+.rank .season {
+  color: var(--text-1);
+  font-weight: 700;
+}
+.rank .rankText {
+  color: rgb(128, 152, 157);
+  font-weight: 500;
+}
+
 .rankHistory {
   display: flex;
-  justify-content: start;
   align-items: center;
-  flex-direction: row;
   margin-bottom: 24px;
 }
+
 .profile {
   border: 2px solid rgb(205, 136, 55);
   border-radius: 6px;
@@ -208,194 +203,189 @@ nav {
   width: 93px;
   position: relative;
   overflow: visible;
-  .levelContainer {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    background: #0d0d1a;
-    border: 1px solid rgb(205, 136, 55);
-    border-radius: 6px;
-    padding: 2px 10px;
-    color: white;
-    font-weight: 700;
-    font-size: 12px;
-    white-space: nowrap;
-    width: 44px;
-  }
-  .levelBottom {
-    position: absolute;
-    top: 0.5px;
-    left: 50%;
-    z-index: 1;
-    transform: translateX(-50%);
-    width: 46px;
-    height: 6px;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border: 2px solid var(--surface);
-  }
-  .pfpContainer {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    border-radius: 4px;
-    border: 2px solid var(--surface);
-    position: inherit;
-    img {
-      width: 100%;
-      height: 100%;
-      border-radius: 2px;
-      object-fit: contain;
-    }
-  }
 }
+.profile .levelContainer {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  background: #0d0d1a;
+  border: 1px solid rgb(205, 136, 55);
+  border-radius: 6px;
+  padding: 2px 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  white-space: nowrap;
+  width: 44px;
+}
+.profile .levelBottom {
+  position: absolute;
+  top: 0.5px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border: 2px solid var(--surface);
+}
+.profile .pfpContainer {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 2px solid var(--surface);
+}
+.profile .pfpContainer img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  object-fit: contain;
+}
+
 .tabSelector {
   margin-top: 12px;
   margin-bottom: 24px;
-  .tabMenu {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-    gap: 22px;
-    list-style: none;
-    color: white;
-    font-size: 14px;
-    font-weight: 700;
-    min-height: 44px;
-    font-family: "Unbounded", sans-serif;
-    li {
-      padding-bottom: 6px;
-      border: rgba(0, 0, 0, 0) solid 2px;
-    }
-    li:hover {
-      border-bottom: var(--accent) solid 2px;
-    }
-    .active {
-      color: var(--accent);
-      border-bottom: var(--accent) solid 2px;
-    }
-  }
 }
+.tabSelector .tabMenu {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  min-height: 44px;
+  font-family: "Unbounded", sans-serif;
+}
+.tabSelector .tabMenu li {
+  padding-bottom: 6px;
+  border: rgba(0, 0, 0, 0) solid 2px;
+}
+.tabSelector .tabMenu li:hover {
+  border-bottom: var(--accent) solid 2px;
+}
+.tabSelector .tabMenu .active {
+  color: var(--accent);
+  border-bottom: var(--accent) solid 2px;
+}
+
 .center {
   flex: 1;
   display: flex;
   margin-top: 24px;
-  .leftSideBar {
-    flex-direction: column;
-    align-items: center;
-    justify-content: start;
-    .leftContainer {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 324px;
-      .rankSolo {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-      }
-    }
-    .rankFlex {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .rankedContainer,
-    .champStats,
-    .recentMets {
-      background-color: rgb(25, 25, 55);
-      padding: 18px;
-      border-radius: 3px;
-      font-size: 14px;
-      .container {
-        display: flex;
-        align-items: center;
-        .rankTitle {
-          color: white;
-          font-weight: 700;
-          padding-left: 14px;
-        }
-      }
-      .rankInfo {
-        color: var(--text-4);
-        font-weight: 400;
-      }
-      .description {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        margin-top: 16px;
-        .imgContainer {
-          img {
-            width: 54px;
-            height: 54px;
-            object-fit: contain;
-            margin-left: 2px;
-            margin-right: 12px;
-          }
-        }
-        .textContainer {
-          width: 100%;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-          .rankText {
-            .acturalRank {
-              margin-bottom: 2px;
-              color: white;
-              font-weight: 700;
-              font-size: 18px;
-            }
-            .LP {
-              font-weight: 500;
-              font-size: 12px;
-              color: var(--text-4);
-            }
-          }
-          .rankWins {
-            .winAndLosses {
-              margin-bottom: 2px;
-            }
-            .winAndLosses,
-            .winRate {
-              font-weight: 500;
-              font-size: 12px;
-              color: var(--text-4);
-            }
-          }
-        }
-      }
-    }
-  }
+  gap: 12px;
 }
-.champStats, .recentMets{
+.center .leftSideBar {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.center .leftSideBar .leftContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 324px;
+}
+
+/* Consolidated Card Layouts */
+.infoCard {
+  background-color: rgb(25, 25, 55);
+  padding: 18px;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.cardRow {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.headerContainer {
+
+.cardCol {
   display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
 }
-.statsTitle {
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+}
+
+.cardTitle {
   color: white;
   font-weight: 700;
   padding-left: 14px;
+  font-size: 14px;
 }
+
 .message {
   color: var(--text-4);
   font-weight: 400;
 }
+
 .line {
   height: 20px;
   border-left: 2px solid var(--accent);
 }
+
+.description {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+.description .imgContainer img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  margin-left: 2px;
+  margin-right: 12px;
+}
+.description .textContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.description .textContainer .rankText .acturalRank {
+  margin-bottom: 2px;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+.description .textContainer .rankText .LP {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-4);
+}
+.description .textContainer .rankWins .winAndLosses {
+  margin-bottom: 2px;
+}
+.description .textContainer .rankWins .winAndLosses,
+.description .textContainer .rankWins .winRate {
+  font-weight: 500;
+  font-size: 12px;
+  color: var(--text-4);
+}
+.matchHistory{
+  flex: 1;
+  height: 100%;
+}
+.matchHeader{
+  box-sizing: content-box;
+  max-width: 644px;
+  height: 40px; 
+  padding: 12px 18px;
+  background-color: #11112b;
+}
+
+
+
+
 
 .footerContainer {
   border-top: 1px solid var(--border);
