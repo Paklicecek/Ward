@@ -1,5 +1,5 @@
 :root {
-  --bg: #0a0a0e;
+  --bg: #070720;
   --surface: #111118;
   --panel: #16161f;
   --panel2: rgb(25, 25, 55);
@@ -19,7 +19,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
 
 body {
@@ -28,7 +27,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
 }
 
 .app,
@@ -38,28 +36,38 @@ main {
   display: flex;
   flex-direction: column;
 }
+
 .app::before {
   content: "";
   position: absolute;
   background-image: url("https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/splash/Yasuo_1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-color: #0d0d1a;
-  opacity: 0.2;
-  inset: 0;
+  background-position: top center;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 700px;
+  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
   pointer-events: none;
   z-index: -2;
 }
+
 .app::after {
   content: "";
   position: absolute;
-  background-color: #0d0d1a;
-  opacity: 0.4;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 700px;
+  background:
+    radial-gradient(circle at 30% 0%, transparent 0%, var(--bg) 80%),
+    linear-gradient(to bottom, rgba(10, 10, 14, 0.4) 0%, var(--bg) 100%);
   pointer-events: none;
   z-index: -1;
 }
+
 nav {
   display: flex;
   align-items: center;
@@ -120,7 +128,10 @@ nav {
 }
 
 .app {
-  padding: 0 10vw;
+  width: 100%;
+  max-width: 1048px; 
+  margin: 0 auto; 
+  padding: 0 16px;
 }
 
 .mainHeader {
@@ -128,20 +139,24 @@ nav {
   width: 100%;
   padding-top: 24px;
 }
+
 .rowContainer {
   display: flex;
   align-items: center;
 }
+
 .updateContainer {
   margin-left: 24px;
   color: var(--text-1);
   display: flex;
   flex-direction: column;
 }
+
 .searchedAccount {
   margin-bottom: 8px;
   font-size: 30px;
 }
+
 .searchedTagLine {
   margin-left: 12px;
   color: var(--text-4);
@@ -160,6 +175,7 @@ nav {
   gap: 6px;
   font-weight: 700;
 }
+
 .updateButton .mark {
   border-radius: inherit;
   font-size: 14px;
@@ -185,10 +201,12 @@ nav {
   gap: 4px;
   border-radius: 3px;
 }
+
 .rank .season {
   color: var(--text-1);
   font-weight: 700;
 }
+
 .rank .rankText {
   color: rgb(128, 152, 157);
   font-weight: 500;
@@ -208,6 +226,7 @@ nav {
   position: relative;
   overflow: visible;
 }
+
 .profile .levelContainer {
   position: absolute;
   top: -15px;
@@ -224,6 +243,7 @@ nav {
   white-space: nowrap;
   width: 44px;
 }
+
 .profile .levelBottom {
   position: absolute;
   top: 0.5px;
@@ -236,6 +256,7 @@ nav {
   border-bottom-right-radius: 6px;
   border: 2px solid var(--surface);
 }
+
 .profile .pfpContainer {
   width: 100%;
   height: 100%;
@@ -243,6 +264,7 @@ nav {
   border-radius: 4px;
   border: 2px solid var(--surface);
 }
+
 .profile .pfpContainer img {
   width: 100%;
   height: 100%;
@@ -254,6 +276,7 @@ nav {
   margin-top: 12px;
   margin-bottom: 24px;
 }
+
 .tabSelector .tabMenu {
   display: flex;
   align-items: center;
@@ -265,13 +288,16 @@ nav {
   min-height: 44px;
   font-family: "Unbounded", sans-serif;
 }
+
 .tabSelector .tabMenu li {
   padding-bottom: 6px;
   border: rgba(0, 0, 0, 0) solid 2px;
 }
+
 .tabSelector .tabMenu li:hover {
   border-bottom: var(--accent) solid 2px;
 }
+
 .tabSelector .tabMenu .active {
   color: var(--accent);
   border-bottom: var(--accent) solid 2px;
@@ -283,11 +309,13 @@ nav {
   margin-top: 24px;
   gap: 12px;
 }
+
 .center .leftSideBar {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .center .leftSideBar .leftContainer {
   display: flex;
   flex-direction: column;
@@ -295,7 +323,6 @@ nav {
   width: 324px;
 }
 
-/* Consolidated Card Layouts */
 .infoCard {
   background-color: var(--panel2);
   padding: 18px;
@@ -342,6 +369,7 @@ nav {
   align-items: center;
   margin-top: 16px;
 }
+
 .description .imgContainer img {
   width: 54px;
   height: 54px;
@@ -349,41 +377,50 @@ nav {
   margin-left: 2px;
   margin-right: 12px;
 }
+
 .description .textContainer {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .description .textContainer .rankText .acturalRank {
   margin-bottom: 2px;
   color: white;
   font-weight: 700;
   font-size: 18px;
 }
+
 .description .textContainer .rankText .LP {
   font-weight: 500;
   font-size: 12px;
   color: var(--text-4);
 }
+
 .description .textContainer .rankWins .winAndLosses {
   margin-bottom: 2px;
 }
+
 .description .textContainer .rankWins .winAndLosses,
 .description .textContainer .rankWins .winRate {
   font-weight: 500;
   font-size: 12px;
   color: var(--text-4);
 }
-.rankWins{
+
+.rankWins {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
+
 .matchHistory {
   flex: 1;
   height: 100%;
+  background-color: var(--panel3);
 }
+
 .matchHeader {
   box-sizing: content-box;
   max-width: 644px;
@@ -391,6 +428,7 @@ nav {
   padding: 12px 18px;
   background-color: var(--panel3);
 }
+
 .donut {
   width: 35px;
   height: 35px;
@@ -399,6 +437,7 @@ nav {
   -webkit-mask-image: radial-gradient(circle, transparent 40%, black 41%);
   mask-image: radial-gradient(circle, transparent 40%, black 41%);
 }
+
 .pastStatsContainer {
   box-sizing: content-box;
   max-width: 642px;
@@ -430,12 +469,18 @@ nav {
     }
   }
 }
-.matches{
-  background-color: var(--panel3);
-  height: 100%;
+.match{
+  height: 100px;
   width: 644px;
+  margin: 0 18px 6px 18px;
+  border-radius: 3px;
 }
-
+.loss{
+  background-color: #3c213b;
+}
+.loss:hover{
+  background-color: #351934;
+}
 .footerContainer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
