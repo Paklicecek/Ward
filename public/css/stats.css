@@ -129,8 +129,8 @@ nav {
 
 .app {
   width: 100%;
-  max-width: 1048px; 
-  margin: 0 auto; 
+  max-width: 1048px;
+  margin: 0 auto;
   padding: 0 16px;
 }
 
@@ -469,18 +469,29 @@ nav {
     }
   }
 }
-.match{
+.match {
   height: 100px;
   width: 644px;
   margin: 0 18px 6px 18px;
   border-radius: 3px;
 }
-.loss{
+.loss {
   background-color: #3c213b;
 }
-.loss:hover{
+.loss:hover {
   background-color: #351934;
 }
+.groupOne {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  .additionalInformation {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 .footerContainer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
