@@ -475,6 +475,13 @@ nav {
   margin: 0 18px 6px 18px;
   border-radius: 3px;
 }
+.matchInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+}
 .loss {
   background-color: #3c213b;
 }
@@ -491,7 +498,63 @@ nav {
     flex-direction: row;
   }
 }
-
+.gamemode {
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+.lossText {
+  color: red;
+  font-size: 12px;
+  font-weight: 700;
+}
+.date {
+  font-size: 10px;
+  font-weight: 500;
+}
+.length {
+  font-size: 12px;
+  font-weight: 500;
+}
+.length,
+.date {
+  color: var(--text-4);
+}
+.userChampion {
+  width: 58px;
+  height: 58px;
+  margin-right: 2px;
+}
+.summonerSpell,
+.rune {
+  width: 28px;
+  height: 28px;
+}
+.summonerSpells {
+  margin-right: 2px;
+}
+.firstSummoner {
+  margin-bottom: 2px;
+}
+.mainRune {
+  margin-bottom: 2px;
+}
+.groupOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.groupTwo {
+  display: flex;
+  flex-direction: row;
+  margin-left: 6px;
+  .summonerSpells,
+  .runes {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .footerContainer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
