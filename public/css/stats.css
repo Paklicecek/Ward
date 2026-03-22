@@ -48,9 +48,18 @@ main {
   left: 0;
   right: 0;
   height: 700px;
-  -webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 80% at 50% 0%,
+    black 10%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 70% 80% at 50% 0%,
+    black 10%,
+    transparent 100%
+  );
   pointer-events: none;
+  inset: 0;
   z-index: -2;
 }
 
