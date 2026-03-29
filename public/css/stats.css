@@ -71,7 +71,7 @@ main {
   right: 0;
   height: 700px;
   background:
-    radial-gradient(circle at 30% 0%, transparent 0%, var(--bg) 80%),
+    radial-gradient(circle at 30% 0%, transparent 0%, var(--bg) 70%),
     linear-gradient(to bottom, rgba(10, 10, 14, 0.4) 0%, var(--bg) 100%);
   pointer-events: none;
   z-index: -1;
@@ -478,92 +478,234 @@ nav {
     }
   }
 }
+
 .match {
-  height: 100px;
+  height: 96px;
   width: 644px;
   margin: 0 18px 6px 18px;
-  border-radius: 3px;
+  border-radius: 4px;
+  display: flex;
 }
+
 .matchInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
+  width: 100%;
   height: 100%;
+  padding: 0 12px;
+  gap: 16px;
 }
+
 .loss {
   background-color: #3c213b;
 }
+
 .loss:hover {
   background-color: #351934;
 }
+
+.win {
+  background-color: #28344e;
+}
+
+.win:hover {
+  background-color: #28344e;
+}
+
 .groupOne {
   display: flex;
-  align-items: start;
-  justify-content: center;
   flex-direction: column;
-  .additionalInformation {
-    display: flex;
-    flex-direction: row;
-  }
+  justify-content: center;
+  width: 90px;
+  gap: 2px;
 }
+
 .gamemode {
   color: white;
   font-size: 11px;
   font-weight: 700;
 }
+
+.date {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--text-4);
+}
+
+.lpContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 4px 0;
+}
+
+.lpText {
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.additionalInformation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .lossText {
   color: red;
   font-size: 12px;
   font-weight: 700;
 }
-.date {
-  font-size: 10px;
-  font-weight: 500;
+
+.winText {
+  color: #4f9eff;
+  font-size: 12px;
+  font-weight: 700;
 }
+
 .length {
   font-size: 12px;
   font-weight: 500;
-}
-.length,
-.date {
   color: var(--text-4);
 }
-.userChampion {
-  width: 58px;
-  height: 58px;
-  margin-right: 2px;
-}
-.summonerSpell,
-.rune {
-  width: 28px;
-  height: 28px;
-}
-.summonerSpells {
-  margin-right: 2px;
-}
-.firstSummoner {
-  margin-bottom: 2px;
-}
-.mainRune {
-  margin-bottom: 2px;
-}
-.groupOne {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
+
 .groupTwo {
   display: flex;
   flex-direction: row;
-  margin-left: 6px;
-  .summonerSpells,
-  .runes {
-    display: flex;
-    flex-direction: column;
-  }
+  align-items: center;
+  gap: 4px;
 }
+
+.userChampion {
+  width: 48px;
+  height: 48px;
+  border-radius: 2px;
+}
+
+.summonerSpells,
+.runes {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.summonerSpell {
+  width: 23px;
+  height: 23px;
+  border-radius: 2px;
+}
+
+.rune {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+}
+
+.groupThree {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  gap: 4px;
+}
+
+.userStats {
+  font-size: 15px;
+  font-weight: 700;
+  color: white;
+}
+
+.userStats .deaths {
+  color: red;
+}
+
+.userStats .slash {
+  color: var(--text-4);
+  margin: 0 2px;
+}
+
+.additionalStats {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.actuallKDA {
+  color: white;
+}
+
+.kdaText {
+  color: var(--text-4);
+}
+
+.csVision {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 11px;
+  color: var(--text-4);
+  gap: 2px;
+}
+
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 22px);
+  grid-template-rows: repeat(2, 22px);
+  gap: 2px;
+  margin-left: 10px;
+}
+
+.item {
+  width: 22px;
+  height: 22px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.trinket {
+  border-radius: 50%;
+}
+
+.participants {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 85px;
+}
+
+.player img {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+}
+
+.player span {
+  font-size: 11px;
+  color: var(--text-4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player .isMe {
+  color: white;
+  font-weight: 700;
+}
+
 .footerContainer {
   border-top: 1px solid var(--border);
   padding: 20px 60px;
