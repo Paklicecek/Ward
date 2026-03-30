@@ -545,7 +545,7 @@ nav {
 }
 
 .lossText {
-  color: red;
+  color: #ff4e50;
   font-size: 12px;
   font-weight: 700;
 }
@@ -602,7 +602,7 @@ nav {
 }
 
 .userStats .deaths {
-  color: red;
+  color: #ff4e50;
 }
 
 .userStats .slash {
