@@ -25,9 +25,28 @@ class StatsController
         $account = $this->client->getRegional(getEndpoint("puuid", user: $user, tagLine: $tagLine));
         $puuid = $account["data"]["puuid"];
         $matchesID = $this->client->getRegional(getEndpoint("matchesID", puuid: $puuid));
+        $matchesID = $matchesID["data"];
 
         $summoner = $this->client->getServer(getEndpoint("summoner", puuid: $puuid));
         $rankedStats = $this->client->getServer(getEndpoint("rankedStats", puuid: $puuid));
+
+        $match = $this->client->getServer(getEndpoint("match", matchId: $matchesID));
+        $match = $match["data"]["info"];
+        $matches = [
+            "match1" => [
+                "generalInfo" => [
+                    "gameMode" => $match["gameMode"],
+                    "queueID" => $match["queueID"],
+                    "duration" => $match["gameDuration"],
+                ],
+                "playerTeam" => [
+                ],
+                "enemyTeam" => [
+
+                ],
+            ]
+        ];
+
 
         return [
             "puuid" => $puuid,
