@@ -1,17 +1,17 @@
 <?php
 function getEndpoint(
-$lookingFor,
-$user=null, 
-$tagLine=null, 
-$puuid=null, 
-$pfpID=null, 
-$matchID=null, 
-$summonerID=null, 
-$championName=null, 
-$itemID=null
-)
-{   
-     $version = "26.5.1";
+    $lookingFor,
+    $user = null,
+    $tagLine = null,
+    $puuid = null,
+    $pfpID = null,
+    $matchID = null,
+    $summonerID = null,
+    $championName = null,
+    $itemID = null
+): string
+{
+    $version = "26.5.1";
     switch ($lookingFor) {
         case "puuid":
             return "/riot/account/v1/accounts/by-riot-id/$user/$tagLine";
@@ -32,7 +32,6 @@ $itemID=null
         case "itemImage":
             return "https://ddragon.leagueoflegends.com/cdn/$version/img/item/$itemID.png";
         default:
-            break;
+            return 0;
     }
 }
-?>
