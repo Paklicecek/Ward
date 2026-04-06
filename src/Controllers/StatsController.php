@@ -4,8 +4,8 @@ namespace App\Controllers;
 
 use App\Services\ApiClient;
 
-require_once __DIR__ . '/../Services/ApiClient.php';
-require_once __DIR__ . '/../Config/endpoints.php';
+require_once __DIR__ . "/../Services/ApiClient.php";
+require_once __DIR__ . "/../Config/endpoints.php";
 
 class StatsController
 {
@@ -55,13 +55,21 @@ class StatsController
         // MATCH HISTORY ARRAY
         $matchHistory = [];
         $i = 1;
+        $allowedQueueIds = [400, 420, 440, 450, 480, 490, 2300, 2400];
+
         foreach ($matchesID as $matchID) {
-            $match = $this->client->getServer(getEndpoint("match", matchId: $matchID));
+            usleep(100000);
+            $match = $this->client->getRegional(getEndpoint("match", matchID: $matchID));
             $match = $match["data"];
+            $queueId = $match["info"]["queueId"];
+
+            if (!in_array($queueId, $allowedQueueIds, true)) {
+                continue;
+            }
 
             $matchHistory[] = [
                 "matchId" => $i,
-                "gameMode" => $match["info"]["gameMode"],
+                "gameMode" => $this->getRealMode($queueId),
                 "stats" => $this->userStats($puuid, $match)
             ];
             $i++;
@@ -70,12 +78,26 @@ class StatsController
 
         return [
             "puuid" => $puuid,
-            "profileIcon" => $summoner["data"]["profileIconId"],
-            "level" => $summoner["data"]["summonerLevel"],
+            "profileIcon" => $summoner["profileIconId"],
+            "level" => $summoner["summonerLevel"],
             "soloRanked" => $soloRanked,
             "flexRanked" => $flexRanked,
             "matchHistory" => $matchHistory
         ];
+    }
+
+    private function getRealMode(int $queueId): string
+    {
+        return match ($queueId) {
+            420 => "Ranked Solo/Duo",
+            440 => "Ranked Flex",
+            450 => "ARAM",
+            480 => "Swiftplay",
+            2300 => "Brawl",
+            2400 => "ARAM: Mayhem",
+            400 => "Draft Pick",
+            default => "Unknown"
+        };
     }
 
     private function userStats
