@@ -10,5 +10,5 @@ fetch(`/api.php?user=${user}&tagLine=${tagLine}&region=${region}`)
         // renderStats(data)
     })
     .catch(error => {
-        console.error("Error fetching stats:", error);
+        console.error("Error fetching stats:", error)
     })

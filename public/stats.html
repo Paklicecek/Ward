@@ -1,333 +1,334 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>WARD.GG</title>
-    <link rel="stylesheet" href="css/stats.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="css/stats.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+            rel="stylesheet"
     />
-  </head>
-  <body>
-    <header>
-      <nav>
+    <script src="js/stats.js" defer></script>
+</head>
+<body>
+<header>
+    <nav>
         <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
         <div class="navActions">
-          <button class="notif-btn" aria-label="Notifications">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-            </svg>
-            <span class="notifDot" hidden></span>
-          </button>
-        </div>
-      </nav>
-    </header>
-    <main>
-      <div class="app">
-        <section class="mainHeader">
-          <div class="rankHistory">
-            <div class="rank">
-              <strong class="season">S14-2</strong>
-              <span class="rankText">Silver</span>
-            </div>
-          </div>
-          <div class="rowContainer">
-            <div class="profile">
-              <div class="levelContainer">141</div>
-              <div class="levelBottom"></div>
-              <div class="pfpContainer">
-                <img
-                  src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/6382.png"
-                  alt=""
-                />
-              </div>
-            </div>
-            <div class="updateContainer">
-              <div class="searchedAccount">
-                <span class="searchedUsername">Paklicek</span>
-                <span class="searchedTagLine">#rizz</span>
-              </div>
-              <button class="updateButton">
-                Update
-                <div class="mark">!</div>
-              </button>
-            </div>
-          </div>
-          <div class="tabSelector">
-            <menu class="tabMenu">
-              <li class="active">Overview</li>
-              <li>Champion Stats</li>
-            </menu>
-          </div>
-        </section>
-        <section class="center">
-          <div class="leftSideBar">
-            <div class="leftContainer">
-              <div class="infoCard cardRow">
-                <div class="cardHeader">
-                  <div class="line"></div>
-                  <p class="cardTitle">Ranked Solo</p>
-                </div>
-                <p class="message">Unranked</p>
-              </div>
-
-              <div class="infoCard cardCol">
-                <div class="cardHeader">
-                  <div class="line"></div>
-                  <p class="cardTitle">Ranked Flex</p>
-                </div>
-                <div class="description">
-                  <div class="imgContainer">
-                    <img
-                      src="https://static.bigbrain.gg/assets/lol/ranks/s13/gold.png"
-                      alt=""
-                    />
-                  </div>
-                  <div class="textContainer">
-                    <div class="rankText">
-                      <p class="acturalRank">Gold 4</p>
-                      <p class="LP">65 LP</p>
-                    </div>
-                    <div class="rankWins">
-                      <p class="winAndLosses">52W 43L</p>
-                      <p class="winRate">55% Win Rate</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="infoCard cardRow">
-                <div class="cardHeader">
-                  <div class="line"></div>
-                  <p class="cardTitle">Champion Stats</p>
-                </div>
-                <p class="message">Coming soon</p>
-              </div>
-
-              <div class="infoCard cardRow">
-                <div class="cardHeader">
-                  <div class="line"></div>
-                  <p class="cardTitle">Recently Played With</p>
-                </div>
-                <p class="message">Coming soon</p>
-              </div>
-            </div>
-          </div>
-          <div class="matchHistory">
-            <div class="cardHeader matchHeader">
-              <div class="line"></div>
-              <div class="cardTitle">Match History</div>
-            </div>
-            <div class="pastStatsContainer">
-              <div class="donut" style="--win-rate: 40%"></div>
-              <div class="winRateContainer">
-                <span class="winRate">55% Win Rate</span>
-                <span class="range">Last 40 games</span>
-              </div>
-              <div class="kdaContainer">
-                <span class="KDA">2.46 KDA</span>
-                <span class="kdaInfo">6.6 / 5.6 / 7.6</span>
-              </div>
-            </div>
-            <div class="matches">
-              <div class="match loss">
-                <div class="matchInfo">
-                  <div class="groupOne">
-                    <span class="gamemode">Ranked Flex</span>
-                    <span class="date">12 days ago</span>
-                    <div class="lpContainer">
-                      <svg
-                        width="10"
-                        height="10"
+            <button class="notif-btn" aria-label="Notifications">
+                <svg
+                        width="16"
+                        height="16"
                         viewBox="0 0 24 24"
                         fill="none"
-                        stroke="#e84057"
-                        stroke-width="3"
+                        stroke="currentColor"
+                        stroke-width="2"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                      >
-                        <path d="m6 9 6 6 6-6" />
-                      </svg>
-                      <span class="lpText">20 LP</span>
-                    </div>
-                    <div class="additionalInformation">
-                      <span class="lossText">LOSS</span>
-                      <span class="length">40:30</span>
-                    </div>
-                  </div>
-
-                  <div class="groupTwo">
-                    <img
-                      src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/champion/Kayn.png"
-                      alt="Kayn"
-                      class="userChampion"
-                    />
-                    <div class="summonerSpells">
-                      <img
-                        src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/spell/SummonerFlash.png"
-                        alt="Flash"
-                        class="summonerSpell"
-                      />
-                      <img
-                        src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/spell/SummonerSmite.png"
-                        alt="Smite"
-                        class="summonerSpell"
-                      />
-                    </div>
-                    <div class="runes">
-                      <img
-                        src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/small-perk-images/Styles/Precision/Conqueror/Conqueror.png"
-                        alt="Conqueror"
-                        class="rune mainRune"
-                      />
-                      <img
-                        src="https://static.bigbrain.gg/assets/lol/runes/8300.png"
-                        alt="Inspiration"
-                        class="rune secondRune"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="groupThree">
-                    <div class="userStats">
-                      <span class="kills">7</span> <span class="slash">/</span>
-                      <span class="deaths">6</span> <span class="slash">/</span>
-                      <span class="assists">7</span>
-                    </div>
-                    <div class="additionalStats">
-                      <span class="actuallKDA">2.33</span>
-                      <span class="kdaText">KDA</span>
-                    </div>
-                    <div class="csVision">
-                      <span class="cs">255 CS (6.3)</span>
-                      <span class="vision">46 vision</span>
-                    </div>
-                  </div>
-
-                  <div class="groupFour itemsGrid">
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3111.png"
-                      alt="Item"
-                      class="item"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/2504.png"
-                      alt="Item"
-                      class="item"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3071.png"
-                      alt="Item"
-                      class="item"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3340.png"
-                      alt="Item"
-                      class="item trinket"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/6333.png"
-                      alt="Item"
-                      class="item"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3075.png"
-                      alt="Item"
-                      class="item"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3153.png"
-                      alt="Item"
-                      class="item"
-                    />
-                    <img
-                      src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3065.png"
-                      alt="Item"
-                      class="item"
-                    />
-                  </div>
-
-                  <div class="groupFive participants">
-                    <div class="team">
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Garen.png"
-                        /><span>WISLASH...</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/LeeSin.png"
-                        /><span>OzaRR</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Malzahar.png"
-                        /><span>TonyOcean</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Caitlyn.png"
-                        /><span>Aeterna</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Bard.png"
-                        /><span>ADlossol...</span>
-                      </div>
-                    </div>
-                    <div class="team">
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Renekton.png"
-                        /><span>honzin89</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kayn.png"
-                        /><span class="isMe">Paklicek</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Swain.png"
-                        /><span>11ffeer</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Yasuo.png"
-                        /><span>DadaSDN...</span>
-                      </div>
-                      <div class="player">
-                        <img
-                          src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Malphite.png"
-                        /><span>NEVERS...</span>
-                      </div>
-                    </div>
-                  </div>
+                >
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notifDot" hidden></span>
+            </button>
+        </div>
+    </nav>
+</header>
+<main>
+    <div class="app">
+        <section class="mainHeader">
+            <div class="rankHistory">
+                <div class="rank">
+                    <strong class="season">S14-2</strong>
+                    <span class="rankText">Silver</span>
                 </div>
-              </div>
             </div>
-          </div>
+            <div class="rowContainer">
+                <div class="profile">
+                    <div class="levelContainer">141</div>
+                    <div class="levelBottom"></div>
+                    <div class="pfpContainer">
+                        <img
+                                src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/6382.png"
+                                alt=""
+                        />
+                    </div>
+                </div>
+                <div class="updateContainer">
+                    <div class="searchedAccount">
+                        <span class="searchedUsername">Paklicek</span>
+                        <span class="searchedTagLine">#rizz</span>
+                    </div>
+                    <button class="updateButton">
+                        Update
+                        <div class="mark">!</div>
+                    </button>
+                </div>
+            </div>
+            <div class="tabSelector">
+                <menu class="tabMenu">
+                    <li class="active">Overview</li>
+                    <li>Champion Stats</li>
+                </menu>
+            </div>
         </section>
-      </div>
-    </main>
-    <footer class="footerContainer">
-      <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
-      <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
-      <p class="footer-text">EUW · NA · KR · EUN · BR</p>
-    </footer>
-  </body>
+        <section class="center">
+            <div class="leftSideBar">
+                <div class="leftContainer">
+                    <div class="infoCard cardRow">
+                        <div class="cardHeader">
+                            <div class="line"></div>
+                            <p class="cardTitle">Ranked Solo</p>
+                        </div>
+                        <p class="message">Unranked</p>
+                    </div>
+
+                    <div class="infoCard cardCol">
+                        <div class="cardHeader">
+                            <div class="line"></div>
+                            <p class="cardTitle">Ranked Flex</p>
+                        </div>
+                        <div class="description">
+                            <div class="imgContainer">
+                                <img
+                                        src="https://static.bigbrain.gg/assets/lol/ranks/s13/gold.png"
+                                        alt=""
+                                />
+                            </div>
+                            <div class="textContainer">
+                                <div class="rankText">
+                                    <p class="acturalRank">Gold 4</p>
+                                    <p class="LP">65 LP</p>
+                                </div>
+                                <div class="rankWins">
+                                    <p class="winAndLosses">52W 43L</p>
+                                    <p class="winRate">55% Win Rate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infoCard cardRow">
+                        <div class="cardHeader">
+                            <div class="line"></div>
+                            <p class="cardTitle">Champion Stats</p>
+                        </div>
+                        <p class="message">Coming soon</p>
+                    </div>
+
+                    <div class="infoCard cardRow">
+                        <div class="cardHeader">
+                            <div class="line"></div>
+                            <p class="cardTitle">Recently Played With</p>
+                        </div>
+                        <p class="message">Coming soon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="matchHistory">
+                <div class="cardHeader matchHeader">
+                    <div class="line"></div>
+                    <div class="cardTitle">Match History</div>
+                </div>
+                <div class="pastStatsContainer">
+                    <div class="donut" style="--win-rate: 40%"></div>
+                    <div class="winRateContainer">
+                        <span class="winRate">55% Win Rate</span>
+                        <span class="range">Last 40 games</span>
+                    </div>
+                    <div class="kdaContainer">
+                        <span class="KDA">2.46 KDA</span>
+                        <span class="kdaInfo">6.6 / 5.6 / 7.6</span>
+                    </div>
+                </div>
+                <div class="matches">
+                    <div class="match loss">
+                        <div class="matchInfo">
+                            <div class="groupOne">
+                                <span class="gamemode">Ranked Flex</span>
+                                <span class="date">12 days ago</span>
+                                <div class="lpContainer">
+                                    <svg
+                                            width="10"
+                                            height="10"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="#e84057"
+                                            stroke-width="3"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                    >
+                                        <path d="m6 9 6 6 6-6"/>
+                                    </svg>
+                                    <span class="lpText">20 LP</span>
+                                </div>
+                                <div class="additionalInformation">
+                                    <span class="lossText">LOSS</span>
+                                    <span class="length">40:30</span>
+                                </div>
+                            </div>
+
+                            <div class="groupTwo">
+                                <img
+                                        src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/champion/Kayn.png"
+                                        alt="Kayn"
+                                        class="userChampion"
+                                />
+                                <div class="summonerSpells">
+                                    <img
+                                            src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/spell/SummonerFlash.png"
+                                            alt="Flash"
+                                            class="summonerSpell"
+                                    />
+                                    <img
+                                            src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/spell/SummonerSmite.png"
+                                            alt="Smite"
+                                            class="summonerSpell"
+                                    />
+                                </div>
+                                <div class="runes">
+                                    <img
+                                            src="https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/small-perk-images/Styles/Precision/Conqueror/Conqueror.png"
+                                            alt="Conqueror"
+                                            class="rune mainRune"
+                                    />
+                                    <img
+                                            src="https://static.bigbrain.gg/assets/lol/runes/8300.png"
+                                            alt="Inspiration"
+                                            class="rune secondRune"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="groupThree">
+                                <div class="userStats">
+                                    <span class="kills">7</span> <span class="slash">/</span>
+                                    <span class="deaths">6</span> <span class="slash">/</span>
+                                    <span class="assists">7</span>
+                                </div>
+                                <div class="additionalStats">
+                                    <span class="actuallKDA">2.33</span>
+                                    <span class="kdaText">KDA</span>
+                                </div>
+                                <div class="csVision">
+                                    <span class="cs">255 CS (6.3)</span>
+                                    <span class="vision">46 vision</span>
+                                </div>
+                            </div>
+
+                            <div class="groupFour itemsGrid">
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3111.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/2504.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3071.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3340.png"
+                                        alt="Item"
+                                        class="item trinket"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/6333.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3075.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3153.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                                <img
+                                        src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/item/3065.png"
+                                        alt="Item"
+                                        class="item"
+                                />
+                            </div>
+
+                            <div class="groupFive participants">
+                                <div class="team">
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Garen.png"
+                                        /><span>WISLASH...</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/LeeSin.png"
+                                        /><span>OzaRR</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Malzahar.png"
+                                        /><span>TonyOcean</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Caitlyn.png"
+                                        /><span>Aeterna</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Bard.png"
+                                        /><span>ADlossol...</span>
+                                    </div>
+                                </div>
+                                <div class="team">
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Renekton.png"
+                                        /><span>honzin89</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Kayn.png"
+                                        /><span class="isMe">Paklicek</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Swain.png"
+                                        /><span>11ffeer</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Yasuo.png"
+                                        /><span>DadaSDN...</span>
+                                    </div>
+                                    <div class="player">
+                                        <img
+                                                src="https://ddragon.leagueoflegends.com/cdn/14.5.1/img/champion/Malphite.png"
+                                        /><span>NEVERS...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<footer class="footerContainer">
+    <div class="footerLogo">WARD<span class="logoHighlight">.GG</span></div>
+    <p class="footer-text">Not affiliated with Riot Games · Patch 26.2</p>
+    <p class="footer-text">EUW · NA · KR · EUN · BR</p>
+</footer>
+</body>
 </html>
