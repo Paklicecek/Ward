@@ -14,6 +14,14 @@ fetch(`/api.php?user=${user}&tagLine=${tagLine}&region=${region}`)
     })
 
 function renderStats(data) {
+    profileHeader()
+    rankedSolo()
+    rankedFlex()
+    matchHistoryHeader()
+    matchList()
+}
+
+function profileHeader() {
     // === 1. PROFILE HEADER ===
     const username = document.querySelector('.searchedUsername')
     const tagline = document.querySelector('.searchedTagLine')
@@ -24,9 +32,10 @@ function renderStats(data) {
     tagline.innerHTML = tagLine
     level.innerHTML = data.level
     profileImg.src = `https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/${data.profileIcon}.png`
+}
 
-
-    // === 2. RANKED CARD ===
+function rankedSolo() {
+    // === 2. RANKED SOLO CARD ===
     const soloRankImg = document.querySelector('.solo .description .imgContainer img')
     const soloRankText = document.querySelector('.solo .description .textContainer .rankText .actualRank')
     const soloLp = document.querySelector('.solo .description .textContainer .rankText .LP')
@@ -43,7 +52,9 @@ function renderStats(data) {
     soloLp.innerHTML = soloRanked.lp + " LP"
     soloWinLoss.innerHTML = soloWins + "W " + soloLosses + "L"
     soloWinRate.innerHTML = Math.round((soloWins / (soloWins + soloLosses)) * 100) + "% Win Rate"
+}
 
+function rankedFlex() {
     // === 3. RANKED FLEX CARD ===
     const flexRankImg = document.querySelector('.flex .description .imgContainer img')
     const flexRankText = document.querySelector('.flex .description .textContainer .rankText .actualRank')
@@ -61,25 +72,27 @@ function renderStats(data) {
     flexLp.innerHTML = flexRanked.lp + " LP"
     flexWinLoss.innerHTML = flexWins + "W " + flexLosses + "L"
     flexWinRate.innerHTML = Math.round((flexWins / (flexWins + flexLosses)) * 100) + "% Win Rate"
+}
 
+function matchHistoryHeader() {
     // === 4. MATCH HISTORY HEADER ===
     const recentWinRateDonut = document.querySelector('.donut') // Needs style="--win-rate: XX%"
     const recentWinRateText = document.querySelector('.winRateContainer .winRate')
     const recentKdaText = document.querySelector('.kdaContainer .KDA')
     const recentKdaMath = document.querySelector('.kdaContainer .kdaInfo') // The 6.6 / 5.6 / 7.6 part
     avarageCalc(data.matchHistory)
+}
 
-
+function matchList() {
     // === 5. MATCH LIST CONTAINER ===
     const matchesContainerEl = document.querySelector('.matches');
-
 }
 
 function rankImg(rankTitle) {
     return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle.toLowerCase()}.png`
 }
 
-function avarageCalc(matches) {
+function averageCalc(matches) {
     let killsTotal = 0
     let deathsTotal = 0
     let assistsTotal = 0
