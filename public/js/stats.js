@@ -50,7 +50,7 @@ function renderStats(data) {
     const flexLp = document.querySelector('.flex .description .textContainer .rankText .LP')
     const flexWinLoss = document.querySelector('.flex .description .textContainer .rankWins .winAndLosses')
     const flexWinRate = document.querySelector('.flex .description .textContainer .rankWins .winRate')
-    
+
     let flexRanked = data.flexRanked
     let flexRankTitle = flexRanked.tier
     let flexWins = flexRanked.wins
@@ -63,10 +63,12 @@ function renderStats(data) {
     flexWinRate.innerHTML = Math.round((flexWins / (flexWins + flexLosses)) * 100) + "% Win Rate"
 
     // === 4. MATCH HISTORY HEADER ===
-    const recentWinRateDonutEl = document.querySelector('.donut') // Needs style="--win-rate: XX%"
-    const recentWinRateTextEl = document.querySelector('.winRateContainer .winRate')
-    const recentKdaTextEl = document.querySelector('.kdaContainer .KDA')
-    const recentKdaMathEl = document.querySelector('.kdaContainer .kdaInfo') // The 6.6 / 5.6 / 7.6 part
+    const recentWinRateDonut = document.querySelector('.donut') // Needs style="--win-rate: XX%"
+    const recentWinRateText = document.querySelector('.winRateContainer .winRate')
+    const recentKdaText = document.querySelector('.kdaContainer .KDA')
+    const recentKdaMath = document.querySelector('.kdaContainer .kdaInfo') // The 6.6 / 5.6 / 7.6 part
+    avarageCalc(data.matchHistory)
+
 
     // === 5. MATCH LIST CONTAINER ===
     const matchesContainerEl = document.querySelector('.matches');
@@ -75,4 +77,30 @@ function renderStats(data) {
 
 function rankImg(rankTitle) {
     return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle.toLowerCase()}.png`
+}
+
+function avarageCalc(matches) {
+    let killsTotal = 0
+    let deathsTotal = 0
+    let assistsTotal = 0
+    let winArray = []
+    let winRate = 0
+
+    matches.forEach((match) => {
+        killsTotal += match.stats.kills
+        deathsTotal += match.stats.deaths
+        assistsTotal += match.stats.assists
+        winArray.push(match.stats.win)
+
+    })
+
+    let rawKda = (killsTotal + assistsTotal) / deathsTotal
+    let kdaTotal = Math.round(rawKda * 100) / 100
+
+    winArray.forEach()
+
+
+    // array/object
+    let data
+    return data
 }

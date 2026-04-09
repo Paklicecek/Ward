@@ -112,7 +112,7 @@ class StatsController
             $deaths = $participant["deaths"];
             $assists = $participant["assists"];
             if ($deaths == 0) $kda = $kills + $assists;
-            else $kda = round(($kills + $assists) / $deaths);
+            else $kda = round(($kills + $assists) / $deaths, 2);
 
             return [
                 "win" => $participant["win"],
