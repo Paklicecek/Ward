@@ -19,6 +19,7 @@ function renderStats(data) {
     const tagline = document.querySelector('.searchedTagLine')
     const level = document.querySelector('.levelContainer')
     const profileImg = document.querySelector('.pfpContainer img')
+
     username.innerHTML = user
     tagline.innerHTML = tagLine
     level.innerHTML = data.level
@@ -32,6 +33,16 @@ function renderStats(data) {
     const soloWinLoss = document.querySelector('.solo .description .textContainer .rankWins .winAndLosses')
     const soloWinRate = document.querySelector('.solo .description .textContainer .rankWins .winRate')
 
+    let soloRanked = data.soloRanked
+    let soloRankTitle = soloRanked.tier
+    let soloWins = soloRanked.wins
+    let soloLosses = soloRanked.losses
+
+    soloRankImg.src = rankImg(soloRankTitle)
+    soloRankText.innerHTML = soloRankTitle.charAt(0).toUpperCase() + soloRankTitle.slice(1).toLowerCase()
+    soloLp.innerHTML = soloRanked.lp + " LP"
+    soloWinLoss.innerHTML = soloWins + "W " + soloLosses + "L"
+    soloWinRate.innerHTML = Math.round((soloWins / (soloWins + soloLosses)) * 100) + "% Win Rate"
 
     // === 3. RANKED FLEX CARD ===
     const flexRankImg = document.querySelector('.flex .description .imgContainer img')
@@ -50,4 +61,8 @@ function renderStats(data) {
     // === 5. MATCH LIST CONTAINER ===
     const matchesContainerEl = document.querySelector('.matches');
 
+}
+
+function rankImg(rankTitle) {
+    return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle.toLowerCase()}.png`
 }
