@@ -50,7 +50,17 @@ function renderStats(data) {
     const flexLp = document.querySelector('.flex .description .textContainer .rankText .LP')
     const flexWinLoss = document.querySelector('.flex .description .textContainer .rankWins .winAndLosses')
     const flexWinRate = document.querySelector('.flex .description .textContainer .rankWins .winRate')
+    
+    let flexRanked = data.flexRanked
+    let flexRankTitle = flexRanked.tier
+    let flexWins = flexRanked.wins
+    let flexLosses = flexRanked.losses
 
+    flexRankImg.src = rankImg(flexRankTitle)
+    flexRankText.innerHTML = flexRankTitle.charAt(0).toUpperCase() + flexRankTitle.slice(1).toLowerCase()
+    flexLp.innerHTML = flexRanked.lp + " LP"
+    flexWinLoss.innerHTML = flexWins + "W " + flexLosses + "L"
+    flexWinRate.innerHTML = Math.round((flexWins / (flexWins + flexLosses)) * 100) + "% Win Rate"
 
     // === 4. MATCH HISTORY HEADER ===
     const recentWinRateDonutEl = document.querySelector('.donut') // Needs style="--win-rate: XX%"
