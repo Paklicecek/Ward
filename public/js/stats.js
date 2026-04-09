@@ -15,30 +15,39 @@ fetch(`/api.php?user=${user}&tagLine=${tagLine}&region=${region}`)
 
 function renderStats(data) {
     // === 1. PROFILE HEADER ===
-    const usernameEl = document.querySelector('.searchedUsername')
-    const taglineEl = document.querySelector('.searchedTagLine')
-    const levelEl = document.querySelector('.levelContainer')
-    const profileImgEl = document.querySelector('.pfpContainer img')
-    usernameEl.innerHTML = user
-    taglineEl.innerHTML = tagLine
-    levelEl.innerHTML = data.level
-    profileImgEl.src = `https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/${data.profileIcon}.png`
+    const username = document.querySelector('.searchedUsername')
+    const tagline = document.querySelector('.searchedTagLine')
+    const level = document.querySelector('.levelContainer')
+    const profileImg = document.querySelector('.pfpContainer img')
+    username.innerHTML = user
+    tagline.innerHTML = tagLine
+    level.innerHTML = data.level
+    profileImg.src = `https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/${data.profileIcon}.png`
 
-    // === 2. RANKED FLEX CARD ===
-    const flexRankImgEl = document.querySelector('.description .imgContainer img')
-    const flexRankTextEl = document.querySelector('.actualRank')
-    const flexLpEl = document.querySelector('.LP')
-    const flexWinLossEl = document.querySelector('.winAndLosses')
-    const flexWinRateEl = document.querySelector('.winRate')
 
-    
-    // === 3. MATCH HISTORY HEADER ===
+    // === 2. RANKED CARD ===
+    const soloRankImg = document.querySelector('.solo .description .imgContainer img')
+    const soloRankText = document.querySelector('.solo .description .textContainer .rankText .actualRank')
+    const soloLp = document.querySelector('.solo .description .textContainer .rankText .LP')
+    const soloWinLoss = document.querySelector('.solo .description .textContainer .rankWins .winAndLosses')
+    const soloWinRate = document.querySelector('.solo .description .textContainer .rankWins .winRate')
+
+
+    // === 3. RANKED FLEX CARD ===
+    const flexRankImg = document.querySelector('.flex .description .imgContainer img')
+    const flexRankText = document.querySelector('.flex .description .textContainer .rankText .actualRank')
+    const flexLp = document.querySelector('.flex .description .textContainer .rankText .LP')
+    const flexWinLoss = document.querySelector('.flex .description .textContainer .rankWins .winAndLosses')
+    const flexWinRate = document.querySelector('.flex .description .textContainer .rankWins .winRate')
+
+
+    // === 4. MATCH HISTORY HEADER ===
     const recentWinRateDonutEl = document.querySelector('.donut') // Needs style="--win-rate: XX%"
     const recentWinRateTextEl = document.querySelector('.winRateContainer .winRate')
     const recentKdaTextEl = document.querySelector('.kdaContainer .KDA')
     const recentKdaMathEl = document.querySelector('.kdaContainer .kdaInfo') // The 6.6 / 5.6 / 7.6 part
 
-    // === 4. MATCH LIST CONTAINER ===
+    // === 5. MATCH LIST CONTAINER ===
     const matchesContainerEl = document.querySelector('.matches');
 
 }
