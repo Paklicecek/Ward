@@ -14,14 +14,14 @@ fetch(`/api.php?user=${user}&tagLine=${tagLine}&region=${region}`)
     })
 
 function renderStats(data) {
-    profileHeader()
-    rankedSolo()
-    rankedFlex()
-    matchHistoryHeader()
-    matchList()
+    profileHeader(data)
+    rankedSolo(data.soloRanked)
+    rankedFlex(data.flexRanked)
+    matchHistoryHeader(data)
+    matchList(data)
 }
 
-function profileHeader() {
+function profileHeader(data) {
     // === 1. PROFILE HEADER ===
     const username = document.querySelector('.searchedUsername')
     const tagline = document.querySelector('.searchedTagLine')
@@ -34,7 +34,7 @@ function profileHeader() {
     profileImg.src = `https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/${data.profileIcon}.png`
 }
 
-function rankedSolo() {
+function rankedSolo(data) {
     // === 2. RANKED SOLO CARD ===
     const soloRankImg = document.querySelector('.solo .description .imgContainer img')
     const soloRankText = document.querySelector('.solo .description .textContainer .rankText .actualRank')
@@ -42,7 +42,7 @@ function rankedSolo() {
     const soloWinLoss = document.querySelector('.solo .description .textContainer .rankWins .winAndLosses')
     const soloWinRate = document.querySelector('.solo .description .textContainer .rankWins .winRate')
 
-    let soloRanked = data.soloRanked
+    let soloRanked = data
     let soloRankTitle = soloRanked.tier
     let soloWins = soloRanked.wins
     let soloLosses = soloRanked.losses
@@ -54,7 +54,7 @@ function rankedSolo() {
     soloWinRate.innerHTML = Math.round((soloWins / (soloWins + soloLosses)) * 100) + "% Win Rate"
 }
 
-function rankedFlex() {
+function rankedFlex(data) {
     // === 3. RANKED FLEX CARD ===
     const flexRankImg = document.querySelector('.flex .description .imgContainer img')
     const flexRankText = document.querySelector('.flex .description .textContainer .rankText .actualRank')
@@ -62,7 +62,7 @@ function rankedFlex() {
     const flexWinLoss = document.querySelector('.flex .description .textContainer .rankWins .winAndLosses')
     const flexWinRate = document.querySelector('.flex .description .textContainer .rankWins .winRate')
 
-    let flexRanked = data.flexRanked
+    let flexRanked = data
     let flexRankTitle = flexRanked.tier
     let flexWins = flexRanked.wins
     let flexLosses = flexRanked.losses
@@ -74,13 +74,47 @@ function rankedFlex() {
     flexWinRate.innerHTML = Math.round((flexWins / (flexWins + flexLosses)) * 100) + "% Win Rate"
 }
 
-function matchHistoryHeader() {
+function matchHistoryHeader(data) {
     // === 4. MATCH HISTORY HEADER ===
     const recentWinRateDonut = document.querySelector('.donut') // Needs style="--win-rate: XX%"
     const recentWinRateText = document.querySelector('.winRateContainer .winRate')
     const recentKdaText = document.querySelector('.kdaContainer .KDA')
     const recentKdaMath = document.querySelector('.kdaContainer .kdaInfo') // The 6.6 / 5.6 / 7.6 part
-    avarageCalc(data.matchHistory)
+    averageCalc(data.matchHistory)
+}
+
+function averageCalc(matches) {
+    let killsTotal = 0
+    let deathsTotal = 0
+    let assistsTotal = 0
+    let winArray = []
+    let wins = 0
+    let losses = 0
+    let winRate = 0
+
+    matches.forEach((match) => {
+        killsTotal += match.stats.kills
+        deathsTotal += match.stats.deaths
+        assistsTotal += match.stats.assists
+        winArray.push(match.stats.win)
+
+    })
+    winArray.forEach((win) => {
+        if (win == true) wins += 1
+        else losses += 1
+    })
+
+    let rawWinRate = wins / (wins + losses) / 100
+    winRate = Math.round(rawWinRate * 100) / 100
+    let rawKda = (killsTotal + assistsTotal) / deathsTotal
+    let kdaTotal = Math.round(rawKda * 100) / 100
+
+    winArray.forEach()
+
+
+    // array/object
+    let data
+    return data
 }
 
 function matchList() {
@@ -92,28 +126,3 @@ function rankImg(rankTitle) {
     return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle.toLowerCase()}.png`
 }
 
-function averageCalc(matches) {
-    let killsTotal = 0
-    let deathsTotal = 0
-    let assistsTotal = 0
-    let winArray = []
-    let winRate = 0
-
-    matches.forEach((match) => {
-        killsTotal += match.stats.kills
-        deathsTotal += match.stats.deaths
-        assistsTotal += match.stats.assists
-        winArray.push(match.stats.win)
-
-    })
-
-    let rawKda = (killsTotal + assistsTotal) / deathsTotal
-    let kdaTotal = Math.round(rawKda * 100) / 100
-
-    winArray.forEach()
-
-
-    // array/object
-    let data
-    return data
-}
