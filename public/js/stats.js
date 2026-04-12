@@ -76,11 +76,20 @@ function rankedFlex(data) {
 
 function matchHistoryHeader(data) {
     // === 4. MATCH HISTORY HEADER ===
-    const recentWinRateDonut = document.querySelector('.donut') // Needs style="--win-rate: XX%"
-    const recentWinRateText = document.querySelector('.winRateContainer .winRate')
-    const recentKdaText = document.querySelector('.kdaContainer .KDA')
-    const recentKdaMath = document.querySelector('.kdaContainer .kdaInfo') // The 6.6 / 5.6 / 7.6 part
-    averageCalc(data.matchHistory)
+    const donut = document.querySelector('.donut')
+    const winRate = document.querySelector('.winRateContainer .winRate')
+    const range = document.querySelector(".range")
+    const kda = document.querySelector('.kdaContainer .KDA')
+    const kdaInfo = document.querySelector('.kdaContainer .kdaInfo')
+
+    const avg = averageCalc(data.matchHistory)
+
+    donut.style.setProperty("win-rate", `${avg.winRate}%`)
+    winRate.innerHTML = avg.winRate
+    range.innerHTML = avg.numMatches
+    kda.innerHTML = avg.kdaTotal
+    kdaInfo.innerHTML = avg.avgKills + " / " + avg.avgDeaths + " / " + avg.avgAssists
+
 }
 
 function averageCalc(matches) {
@@ -90,7 +99,6 @@ function averageCalc(matches) {
     let winArray = []
     let wins = 0
     let losses = 0
-    let winRate = 0
 
     matches.forEach((match) => {
         killsTotal += match.stats.kills
@@ -104,16 +112,27 @@ function averageCalc(matches) {
         else losses += 1
     })
 
-    let rawWinRate = wins / (wins + losses) / 100
-    winRate = Math.round(rawWinRate * 100) / 100
+    let rawWinRate = wins / (wins + losses)
     let rawKda = (killsTotal + assistsTotal) / deathsTotal
+    let rawKills = killsTotal / matches.length
+    let rawDeaths = deathsTotal / matches.length
+    let rawAssists = assistsTotal / matches.length
+
+    let winRate = Math.round(rawWinRate)
     let kdaTotal = Math.round(rawKda * 100) / 100
+    let avgKills = Math.round(rawKills * 10) / 10
+    let avgDeaths = Math.round(rawDeaths * 10) / 10
+    let avgAssists = Math.round(rawAssists * 10) / 10
+    let numMatches = matches.length
 
-    winArray.forEach()
-
-
-    // array/object
-    let data
+    let data = {
+        winRate,
+        kdaTotal,
+        avgKills,
+        avgDeaths,
+        avgAssists,
+        numMatches
+    }
     return data
 }
 
@@ -124,5 +143,53 @@ function matchList() {
 
 function rankImg(rankTitle) {
     return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle.toLowerCase()}.png`
+    const profile = document.querySelector(".profile")
+    const levelContainer = document.querySelector(".levelContainer")
+    switch (rankTitle.toLowerCase()) {
+        case "iron":
+            profile.style.borderColor = "rgb(81, 72, 74)"
+            levelContainer.style.borderColor = "rgb(81, 72, 74)"
+            break;
+        case "bronze":
+            profile.style.borderColor = "rgb(140, 82, 58)"
+            levelContainer.style.borderColor = "rgb(140, 82, 58)"
+            break;
+        case "silver":
+            profile.style.borderColor = "rgb(128, 152, 157)"
+            levelContainer.style.borderColor = "rgb(128, 152, 157)"
+            break;
+        case "gold":
+            profile.style.borderColor = "rgb(205, 136, 55)"
+            levelContainer.style.borderColor = "rgb(205, 136, 55)"
+            break;
+        case "platinum":
+            profile.style.borderColor = "rgb(37, 172, 214)"
+            levelContainer.style.borderColor = "rgb(37, 172, 214)"
+            break;
+        case "emerald":
+            profile.style.borderColor = "rgb(20, 156, 58)"
+            levelContainer.style.borderColor = "rgb(20, 156, 58)"
+            break;
+        case "diamond":
+            profile.style.borderColor = "rgb(129, 65, 235)"
+            levelContainer.style.borderColor = "rgb(129, 65, 235)"
+            break;
+        case "master":
+            profile.style.borderColor = "rgb(164, 88, 78)"
+            levelContainer.style.borderColor = "rgb(164, 88, 78)"
+            break;
+        case "grandmaster":
+            profile.style.borderColor = "rgb(205, 69, 69)"
+            levelContainer.style.borderColor = "rgb(205, 69, 69)"
+            break;
+        case "challenger":
+            profile.style.borderColor = "rgb(244, 200, 116)"
+            levelContainer.style.borderColor = "rgb(244, 200, 116)"
+            break;
+        default:
+            profile.style.borderColor = "rgb(65, 65, 101)"
+            levelContainer.style.borderColor = "rgb(65, 65, 101)"
+            break;
+    }
 }
 
