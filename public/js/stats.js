@@ -29,7 +29,7 @@ function profileHeader(data) {
     const profileImg = document.querySelector('.pfpContainer img')
 
     username.innerHTML = user
-    tagline.innerHTML = tagLine
+    tagline.innerHTML = "#" + tagLine
     level.innerHTML = data.level
     profileImg.src = `https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/${data.profileIcon}.png`
 }
@@ -84,10 +84,10 @@ function matchHistoryHeader(data) {
 
     const avg = averageCalc(data.matchHistory)
 
-    donut.style.setProperty("win-rate", `${avg.winRate}%`)
-    winRate.innerHTML = avg.winRate
-    range.innerHTML = avg.numMatches
-    kda.innerHTML = avg.kdaTotal
+    donut.style.setProperty("--win-rate", `${avg.winRate}%`)
+    winRate.innerHTML = avg.winRate + "% WR"
+    range.innerHTML = "Last " + avg.numMatches + " games"
+    kda.innerHTML = avg.kdaTotal + " KDA"
     kdaInfo.innerHTML = avg.avgKills + " / " + avg.avgDeaths + " / " + avg.avgAssists
 
 }
@@ -118,7 +118,7 @@ function averageCalc(matches) {
     let rawDeaths = deathsTotal / matches.length
     let rawAssists = assistsTotal / matches.length
 
-    let winRate = Math.round(rawWinRate)
+    let winRate = Math.round(rawWinRate * 100)
     let kdaTotal = Math.round(rawKda * 100) / 100
     let avgKills = Math.round(rawKills * 10) / 10
     let avgDeaths = Math.round(rawDeaths * 10) / 10
@@ -142,10 +142,10 @@ function matchList() {
 }
 
 function rankImg(rankTitle) {
-    return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle.toLowerCase()}.png`
+    rankTitle = rankTitle.toLowerCase()
     const profile = document.querySelector(".profile")
     const levelContainer = document.querySelector(".levelContainer")
-    switch (rankTitle.toLowerCase()) {
+    switch (rankTitle) {
         case "iron":
             profile.style.borderColor = "rgb(81, 72, 74)"
             levelContainer.style.borderColor = "rgb(81, 72, 74)"
@@ -191,5 +191,6 @@ function rankImg(rankTitle) {
             levelContainer.style.borderColor = "rgb(65, 65, 101)"
             break;
     }
+    return `https://static.bigbrain.gg/assets/lol/ranks/s13/${rankTitle}.png`
 }
 
