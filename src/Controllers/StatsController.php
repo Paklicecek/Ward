@@ -70,6 +70,8 @@ class StatsController
             $matchHistory[] = [
                 "matchId" => $i,
                 "gameMode" => $this->getRealMode($queueId),
+                "gameEndTimestamp" => $match["info"]["gameEndTimestamp"],
+                "gameDuration" => $match["info"]["gameDuration"],
                 "stats" => $this->userStats($puuid, $match)
             ];
             $i++;

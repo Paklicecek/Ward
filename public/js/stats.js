@@ -18,7 +18,7 @@ function renderStats(data) {
     rankedSolo(data.soloRanked)
     rankedFlex(data.flexRanked)
     matchHistoryHeader(data)
-    matchList(data)
+    matchList(data.matchHistory)
 }
 
 function profileHeader(data) {
@@ -136,9 +136,142 @@ function averageCalc(matches) {
     return data
 }
 
-function matchList() {
+function matchList(data) {
     // === 5. MATCH LIST CONTAINER ===
-    const matchesContainerEl = document.querySelector('.matches');
+    const matchesContainer = document.querySelector('.matches')
+    data.forEach((match) => {
+        // === VARIABLES ===
+        let gameMode = match.gameMode
+        let stats = match.stats
+
+        let kills = stats.kills
+        let deaths = stats.deaths
+        let assists = stats.assists
+        let kda = stats.kda
+        let cs = stats.cs
+        let vision = stats.vision
+        let win = stats.win
+        let timeAgo = timeFormatter(match.gameEndTimestamp)
+
+        // === IMGS ===
+        let itemsIds = stats.items
+        let championId = stats.champion
+        let mainRuneId = stats.mainRune
+        let secondRuneId = stats.secondRune
+        let mainSummonerId = stats.mainSummoner
+        let secondSummonerId = stats.secondSummoner
+
+        let matchStatusClass = "loss"
+        if (win === true) matchStatusClass = "win"
+        let lpColorHex = isWin ? "#4f9eff" : "#e84057"
+        let lpArrowPath = isWin ? "m5 15 7-7 7 7" : "m6 9 6 6 6-6"
+        if (gameMode.includes("Ranked")) {
+            const rankedTemplate = `
+            <div class="match ${matchStatusClass}">
+                <div class="matchInfo">
+                    <div class="groupOne">
+                        <span class="gamemode">${gameMode}</span>
+                        <span class="date">${timeAgo}</span>
+                        <div class="lpContainer">
+                            <svg
+                                    width="10"
+                                    height="10"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="${lpColorHex}"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                            >
+                                <path d="${lpArrowPath}"/>
+                            </svg>
+                            <span class="lpText">LP</span>
+                        </div>
+                        <div class="additionalInformation">
+                            <span class="${resultTextClass}">${resultText}</span>
+                            <span class="length">${matchDuration}</span>
+                        </div>
+                    </div>
+            
+                    <div class="groupTwo">
+                        <img
+                                src="${championImgSrc}"
+                                alt="${championName}"
+                                class="userChampion"
+                        />
+                        <div class="summonerSpells">
+                            <img
+                                    src="${spell1Src}"
+                                    alt="Summoner Spell 1"
+                                    class="summonerSpell"
+                            />
+                            <img
+                                    src="${spell2Src}"
+                                    alt="Summoner Spell 2"
+                                    class="summonerSpell"
+                            />
+                        </div>
+                        <div class="runes">
+                            <img
+                                    src="${mainRuneSrc}"
+                                    alt="Main Rune"
+                                    class="rune mainRune"
+                            />
+                            <img
+                                    src="${secondRuneSrc}"
+                                    alt="Secondary Rune"
+                                    class="rune secondRune"
+                            />
+                        </div>
+                    </div>
+            
+                    <div class="groupThree">
+                        <div class="userStats">
+                            <span class="kills">${kills}</span> <span class="slash">/</span>
+                            <span class="deaths">${deaths}</span> <span class="slash">/</span>
+                            <span class="assists">${assists}</span>
+                        </div>
+                        <div class="additionalStats">
+                            <span class="actuallKDA">${kda}</span>
+                            <span class="kdaText">KDA</span>
+                        </div>
+                        <div class="csVision">
+                            <span class="cs">${totalCs} CS (${csPerMin})</span>
+                            <span class="vision">${visionScore} vision</span>
+                        </div>
+                    </div>
+            
+                    <div class="groupFour itemsGrid">
+                        ${itemsHtml}
+                    </div>
+            
+                    <div class="groupFive participants">
+                        ${participantsHtml}
+                    </div>
+                </div>
+            </div>
+            `
+        }
+
+    })
+}
+
+function timeAgoFormatter(matchTimestampMs) {
+    const secondsAgo = Math.floor((Date.now() - matchTimestampMs) / 1000)
+
+    let interval = secondsAgo / 2592000
+    if (interval > 1) return Math.floor(interval) + " months ago"
+
+    interval = secondsAgo / 86400;
+    if (interval > 1) return Math.floor(interval) + " days ago"
+
+    interval = secondsAgo / 3600;
+    if (interval > 1) return Math.floor(interval) + " hours ago"
+
+    interval = secondsAgo / 60;
+    if (interval > 1) return Math.floor(interval) + " minutes ago"
+
+    return Math.floor(secondsAgo) + " seconds ago"
 }
 
 function rankImg(rankTitle) {
