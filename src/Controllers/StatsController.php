@@ -72,7 +72,8 @@ class StatsController
                 "gameMode" => $this->getRealMode($queueId),
                 "gameEndTimestamp" => $match["info"]["gameEndTimestamp"],
                 "gameDuration" => $match["info"]["gameDuration"],
-                "stats" => $this->userStats($puuid, $match)
+                "stats" => $this->userStats($puuid, $match),
+                "participants" => $this->getParticipants($match)
             ];
             $i++;
         }
@@ -138,5 +139,18 @@ class StatsController
         }
         return [];
     }
+
+    private function getParticipants($match): array
+    {
+        $players = [];
+        foreach ($match["info"]["participants"] as $p) {
+            $players[] = [
+                "name" => $p["riotIdGameName"] ?: $p["summonerName"],
+                "championId" => $p["championId"]
+            ];
+        }
+        return $players;
+    }
 }
+
 
