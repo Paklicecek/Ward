@@ -9,7 +9,13 @@ async function init() {
     try {
         let res = await fetch(`/api.php?user=${user}&tagLine=${tagLine}&region=${region}`)
         let data = await res.json()
-        console.log(data)
+        if (!data || data.error) {
+            setTimeout(() => {
+                hideLoader()
+                document.querySelector('.app').innerHTML = `<span style="color: red;">This user does not exist</span>`
+            }, 10000)
+            return
+        }
         await renderStats(data)
         hideLoader()
     } catch (error) {
@@ -51,8 +57,6 @@ async function renderStats(data) {
     await matchList(data.matchHistory)
 }
 
-// === PROFILE HEADER ===
-
 function profileHeader(data) {
     let username = document.querySelector('.searchedUsername')
     let tagline = document.querySelector('.searchedTagLine')
@@ -64,8 +68,6 @@ function profileHeader(data) {
     level.innerHTML = data.level
     profileImg.src = `https://static.bigbrain.gg/assets/lol/riot_static/16.5.1/img/profileicon/${data.profileIcon}.png`
 }
-
-// === RANKED SOLO ===
 
 function rankedSolo(data) {
     let soloRankImg = document.querySelector('.solo .description .imgContainer img')
@@ -85,8 +87,6 @@ function rankedSolo(data) {
     soloWinRate.innerHTML = Math.round((soloWins / (soloWins + soloLosses)) * 100) + "% Win Rate"
 }
 
-// === RANKED FLEX ===
-
 function rankedFlex(data) {
     let flexRankImg = document.querySelector('.flex .description .imgContainer img')
     let flexRankText = document.querySelector('.flex .description .textContainer .rankText .actualRank')
@@ -104,8 +104,6 @@ function rankedFlex(data) {
     flexWinLoss.innerHTML = flexWins + "W " + flexLosses + "L"
     flexWinRate.innerHTML = Math.round((flexWins / (flexWins + flexLosses)) * 100) + "% Win Rate"
 }
-
-// === MATCH HISTORY HEADER ===
 
 function matchHistoryHeader(data) {
     let donut = document.querySelector('.donut')
@@ -154,8 +152,6 @@ function averageCalc(matches) {
     return {winRate, kdaTotal, avgKills, avgDeaths, avgAssists, numMatches}
 }
 
-// === MATCH LIST ===
-
 async function matchList(data) {
     let matchesContainer = document.querySelector('.matches')
     matchesContainer.innerHTML = ""
@@ -164,13 +160,20 @@ async function matchList(data) {
         let gameMode = match.gameMode
         let stats = match.stats
         let win = stats.win
-        let timeAgo = timeAgoFormatter(match.gameEndTimestamp)
+        let timeAgo = timeFormatter(match.gameEndTimestamp)
 
-        let matchStatusClass = win ? "win" : "loss"
-        let resultTextClass = win ? "winText" : "lossText"
-        let resultText = win ? "WIN" : "LOSS"
-        let lpColorHex = win ? "#4f9eff" : "#e84057"
-        let lpArrowPath = win ? "M5 15 L12 8 L19 15" : "M6 9 L12 15 L18 9"
+        let matchStatusClass = "win"
+        let resultTextClass = "winText"
+        let resultText = "WIN"
+        let lpColorHex = "#4f9eff"
+        let lpArrowPath = "M5 15 L12 8 L19 15"
+        if (win != true) {
+            matchStatusClass = "loss"
+            resultTextClass = "lossText"
+            resultText = "LOSS"
+            lpColorHex = "#e84057"
+            lpArrowPath = "M6 9 L12 15 L18 9"
+        }
 
         let minutes = Math.floor(match.gameDuration / 60)
         let seconds = match.gameDuration % 60
@@ -185,15 +188,16 @@ async function matchList(data) {
         let mainRuneSrc = await getMainRune(stats.mainRune)
         let secondRuneSrc = `https://static.bigbrain.gg/assets/lol/runes/${stats.secondRune}.png`
 
-        // === ITEMS ===
-
         let itemsHtml = ""
         let itemOrder = [0, 1, 2, 6, 3, 4, 5]
 
         for (let i = 0; i < itemOrder.length; i++) {
             let realIndex = itemOrder[i]
             let itemId = stats.items[realIndex]
-            let isTrinket = realIndex === 6 ? "trinket" : ""
+            let isTrinket = ""
+            if (realIndex == 6) {
+                isTrinket = "trinket"
+            }
 
             if (itemId === 0) {
                 itemsHtml += `<div class="item ${isTrinket}"></div>`
@@ -202,13 +206,12 @@ async function matchList(data) {
             }
         }
 
-        // === PARTICIPANTS ===
-
         let team1Html = ""
         let team2Html = ""
 
         match.participants.forEach((p, index) => {
-            let isMeClass = p.name === user ? "isMe" : ""
+            let isMeClass = ""
+            if (p.name === user) isMeClass = "isMe"
             let playerHtml = `
                 <div class="player">
                     <img src="https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${p.championId}.png" />
@@ -273,8 +276,6 @@ async function matchList(data) {
     }
 }
 
-// === SUMMONER SPELLS ===
-
 let summonerSpells = []
 
 async function getSummonerSpell(spellId) {
@@ -284,18 +285,16 @@ async function getSummonerSpell(spellId) {
         summonerSpells = Object.values(json.data)
     }
 
-    let spell = null
+    let foundSpell = null
 
-    summonerSpells.forEach((s) => {
-        if (s.key == spellId) {
-            spell = s
+    summonerSpells.forEach((spell) => {
+        if (spell.key == spellId) {
+            foundSpell = spell
         }
     })
 
-    return `https://ddragon.leagueoflegends.com/cdn/16.8.1/img/spell/${spell.image.full}`
+    return `https://ddragon.leagueoflegends.com/cdn/16.8.1/img/spell/${foundSpell.image.full}`
 }
-
-// === RUNES ===
 
 let mainRunes = []
 
@@ -306,20 +305,18 @@ async function getMainRune(runeId) {
         mainRunes = json
     }
 
-    let rune = null
+    let foundRune = null
 
-    mainRunes.forEach((r) => {
-        if (r.id == runeId) {
-            rune = r
+    mainRunes.forEach((rune) => {
+        if (rune.id == runeId) {
+            foundRune = rune
         }
     })
 
-    return "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/" + rune.iconPath.replace("/lol-game-data/assets/", "").toLowerCase()
+    return `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/${foundRune.iconPath.replace("/lol-game-data/assets/", "").toLowerCase()}`
 }
 
-// === TIME FORMATTER ===
-
-function timeAgoFormatter(matchTimestampMs) {
+function timeFormatter(matchTimestampMs) {
     let secondsAgo = Math.floor((Date.now() - matchTimestampMs) / 1000)
 
     let interval = secondsAgo / 2592000
@@ -336,8 +333,6 @@ function timeAgoFormatter(matchTimestampMs) {
 
     return Math.floor(secondsAgo) + " seconds ago"
 }
-
-// === RANK IMAGE ===
 
 function rankImg(rankTitle) {
     rankTitle = rankTitle.toLowerCase()

@@ -58,7 +58,7 @@ class StatsController
         $allowedQueueIds = [400, 420, 440, 450, 480, 490, 2300, 2400];
 
         foreach ($matchesID as $matchID) {
-            usleep(100000);
+            usleep(10000);
             $match = $this->client->getRegional(getEndpoint("match", matchID: $matchID));
             $match = $match["data"];
             $queueId = $match["info"]["queueId"];
