@@ -223,29 +223,6 @@ nav {
     opacity: 0.85;
 }
 
-.footerContainer {
-    border-top: 1px solid var(--border);
-    padding: 20px 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--surface);
-    flex-shrink: 0;
-}
-
-.footerLogo {
-    font-family: 'Unbounded';
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--text-1);
-}
-
-.footer-text {
-    font-size: 0.6rem;
-    color: var(--text-2);
-    letter-spacing: 0.1em;
-}
-
 @keyframes fadeDown {
     from {
         opacity: 0;

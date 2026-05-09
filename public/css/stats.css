@@ -70,62 +70,6 @@ main {
     z-index: -1;
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 24px;
-    height: 56px;
-    border-bottom: 1px solid var(--border);
-    animation: fadeDown 0.5s ease both;
-    background: var(--surface);
-}
-
-.logoHighlight {
-    color: var(--accent);
-}
-
-.logo {
-    font-family: "Unbounded", sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    color: var(--text-1);
-    text-decoration: none;
-}
-
-.navActions {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.notif-btn {
-    background: var(--raised);
-    border: 1px solid var(--border-hi);
-    color: var(--text-2);
-    width: 34px;
-    height: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: color 0.15s, background 0.15s;
-}
-
-.notif-btn:hover {
-    color: var(--text-1);
-    background: var(--panel);
-}
-
-.notifDot {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-}
 
 .app {
     width: 100%;
