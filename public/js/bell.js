@@ -9,8 +9,7 @@ async function initBell() {
     let latestId = null
 
     try {
-        // This ?rest_route= URL successfully bypassed your server's 404 error!
-        let res = await fetch("https://spsrakovnik.tech/opat.do.2023/Ward/wordpress/index.php?rest_route=/wp/v2/posts&per_page=2")
+        let res = await fetch("https://spsrakovnik.tech/opat.do.2023/Ward/wordpress/ward-news.php")
         let posts = await res.json()
         
         if (posts && posts.length > 0) {
@@ -35,7 +34,6 @@ function renderNews(posts) {
         tempDiv.innerHTML = post.title.rendered
         const decodedTitle = tempDiv.textContent || tempDiv.innerText
         
-        // Backticks are kept here specifically because it is a multi-line HTML string
         newsHtml += `
             <a href="${post.link}" class="notif-item">
                 <span class="notif-title">${decodedTitle}</span>
@@ -62,18 +60,18 @@ function setupBellListeners(latestId) {
         }
     }
 
-    bellBtn.addEventListener("click", (event) => {
-        event.stopPropagation()
-        dropdown.classList.toggle("show")
-        
-        if (latestId) {
-            localStorage.setItem("ward_seen_news_id", latestId)
-            bellDot.style.display = "none"
-        }
-    })
-
     document.addEventListener("click", (event) => {
-        if (!event.target.closest("#bellToggle") && !event.target.closest("#bellDropdown")) {
+        const clickedBell = event.target.closest("#bellToggle")
+        const clickedDropdown = event.target.closest("#bellDropdown")
+
+        if (clickedBell) {
+            dropdown.classList.toggle("show")
+            
+            if (latestId) {
+                localStorage.setItem("ward_seen_news_id", latestId)
+                bellDot.style.display = "none"
+            }
+        } else if (!clickedDropdown) {
             dropdown.classList.remove("show")
         }
     })
