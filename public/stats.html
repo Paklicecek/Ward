@@ -12,15 +12,18 @@
       rel="stylesheet"
     />
     <script src="js/stats.js?v=2" defer></script>
+    <script src="js/bell.js?v=5" defer></script>
     <link rel="stylesheet" href="css/footer.css" />
-    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/header.css?v=11" />
   </head>
   <body>
     <header>
       <nav>
-        <a class="logo" href="/">WARD<span class="logoHighlight">.GG</span></a>
+        <a class="logo" href="https://spsrakovnik.tech/opat.do.2023/Ward"
+          >WARD<span class="logoHighlight">.GG</span></a
+        >
         <div class="navActions">
-          <button class="notif-btn" aria-label="Notifications">
+          <button class="notif-btn" id="bellToggle" aria-label="Notifications">
             <svg
               width="16"
               height="16"
@@ -34,8 +37,12 @@
               <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
               <path d="M13.73 21a2 2 0 0 1-3.46 0" />
             </svg>
-            <span class="notifDot" hidden></span>
+            <span class="notifDot" id="bellDot" style="display: none"></span>
           </button>
+          <div class="notif-dropdown" id="bellDropdown">
+            <div class="notif-header">LATEST NEWS</div>
+            <div id="bellContent"></div>
+          </div>
         </div>
       </nav>
     </header>

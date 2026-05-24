@@ -8,6 +8,7 @@ docker/secrets/
 # --- PHP Dependencies ---
 /vendor/
 composer.lock
+wordpress
 
 # --- System Junk (Windows & Mac) ---
 .DS_Store
